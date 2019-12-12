@@ -20,7 +20,15 @@ namespace CareAmarillo
         [STAThread]
         static void Main()
         {
-            DatabaseProcess.ReadDataBase();
+            //DatabaseProcess.ReadDataBase();
+            //DatabaseProcess.ReadHumanServices();
+            //DatabaseProcess.ReadEmergencyServices();
+            //DatabaseProcess.ReadServicesOffered();
+            DatabaseProcess.UpdateBedCount(1, 7);
+            //DatabaseProcess.UpdateVolunteers(1, 7);
+            //DatabaseProcess.DeleteAUser(3);
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
@@ -30,13 +38,6 @@ namespace CareAmarillo
 
 
             //DatabaseProcess.AddNewUser("Tom", "Smith", "tommy1998", "Yes", "no", 1, 3);
-
-            //DatabaseProcess.ReadHumanServices();
-            //DatabaseProcess.ReadEmergencyServices();
-            //DatabaseProcess.ReadServicesOffered();
-            //DatabaseProcess.UpdateBedCount(2, 3);
-            //DatabaseProcess.UpdateVolunteers(2, 1);
-            //DatabaseProcess.DeleteAUser(3);
             //Console.ReadKey();
 
         }

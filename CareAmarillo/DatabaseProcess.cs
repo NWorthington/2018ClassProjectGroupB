@@ -19,7 +19,7 @@ namespace CareAmarillo
         static public void ReadDataBase()
         {
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             MessageBox.Show(connection.ServerVersion);
             //Console.WriteLine(connection.ServerVersion);
@@ -63,8 +63,9 @@ namespace CareAmarillo
                         rec += reader.GetFieldValue<int>(columnNames["Human_Services"]) + " ";
                         rec += reader.GetFieldValue<int>(columnNames["Emergency_Services"]);
                         //Console.WriteLine(rec);
-                        MessageBox.Show(rec);
+                        
                     }
+                    MessageBox.Show(rec);
                 }
             }
         }
@@ -117,8 +118,9 @@ namespace CareAmarillo
                         rec += reader.GetFieldValue<string>(columnNames["City"]) + " ";
                         rec += reader.GetFieldValue<string>(columnNames["State"]) + " ";
                         rec += reader.GetFieldValue<string>(columnNames["Address"]);
-                        Console.WriteLine(rec);
+                        //Console.WriteLine(rec);
                     }
+                    MessageBox.Show(rec);
                 }
             }
         }
@@ -171,8 +173,9 @@ namespace CareAmarillo
                         rec += reader.GetFieldValue<string>(columnNames["City"]) + " ";
                         rec += reader.GetFieldValue<string>(columnNames["State"]) + " ";
                         rec += reader.GetFieldValue<string>(columnNames["Address"]);
-                        Console.WriteLine(rec);
+                        //Console.WriteLine(rec);
                     }
+                    MessageBox.Show(rec);
                 }
             }
         }
@@ -225,8 +228,9 @@ namespace CareAmarillo
                         rec += reader.GetFieldValue<string>(columnNames["Info"]) + " ";
                         rec += reader.GetFieldValue<string>(columnNames["Criteria"]) + " ";
                         rec += reader.GetFieldValue<string>(columnNames["Address"]);
-                        Console.WriteLine(rec);
+                        //Console.WriteLine(rec);
                     }
+                    MessageBox.Show(rec);
                 }
             }
         }
@@ -257,8 +261,15 @@ namespace CareAmarillo
             }
         }
 
-        static public void UpdateBedCount(int count, int id)
+        static public void UpdateBedCount(int id, int count)
         {
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.Open();
+            MessageBox.Show(connection.ServerVersion);
+            //Console.WriteLine(connection.ServerVersion);
+            //Console.ReadKey();
+
             using (SqlCommand updateBed = connection.CreateCommand())
             {
                 updateBed.CommandText = "update ServicesOffered set BedCount = @bedcount where ID = @id;";
@@ -269,8 +280,15 @@ namespace CareAmarillo
         }
 
 
-        static public void UpdateVolunteers(int count, int id)
+        static public void UpdateVolunteers(int id, int count)
         {
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.Open();
+            MessageBox.Show(connection.ServerVersion);
+            //Console.WriteLine(connection.ServerVersion);
+            //Console.ReadKey();
+
             using (SqlCommand updateVols = connection.CreateCommand())
             {
                 updateVols.CommandText = "update ServicesOffered set VolunteerOpportunities = @volunteers where ID = @id;";
@@ -283,6 +301,13 @@ namespace CareAmarillo
 
         static public void DeleteAUser(int id)
         {
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.Open();
+            MessageBox.Show(connection.ServerVersion);
+            //Console.WriteLine(connection.ServerVersion);
+            //Console.ReadKey();
+
             using (SqlCommand deleteProf = connection.CreateCommand())
             {
                 deleteProf.CommandText = "delete from Users where ID = @userID;";
