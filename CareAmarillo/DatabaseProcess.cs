@@ -71,7 +71,7 @@ namespace CareAmarillo
         }
 
 
-        public static void ReadHumanServices()
+        public static string ReadHumanServices()
         {
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
@@ -121,6 +121,7 @@ namespace CareAmarillo
                         //Console.WriteLine(rec);
                     }
                     MessageBox.Show(rec);
+                    return rec;
                 }
             }
         }
