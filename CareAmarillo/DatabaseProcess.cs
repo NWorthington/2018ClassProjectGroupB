@@ -74,7 +74,7 @@ namespace CareAmarillo
         }
 
 
-        public static string ReadHumanServices()
+        public static DataSet ReadHumanServices()
         {
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
@@ -115,7 +115,7 @@ namespace CareAmarillo
                 System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
                     SqlDataAdapter testAdapter = new SqlDataAdapter();
                     DataSet testSet = new DataSet("HumanServicesProvider");
-                    testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
+                    //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
                     testAdapter.SelectCommand = readAllDatabaseRecords;
 
                     testAdapter.Fill(testSet);
@@ -127,7 +127,9 @@ namespace CareAmarillo
                    // rec += testSet.Tables[0].Rows[i]["Phone"];
                     //rec += testSet.Tables[0].Rows[i]["Address"].ToString() + "\n";
                 }
-                var searchSubset = testSet.Tables[0].Select("HCity = 'Amarillo'");
+
+                                    //pass in table then search item
+                var searchSubset = testSet.Tables[0].Select("HCity = 'Dumas'");
                 for (var k = 0; k < searchSubset.Length; k++) {
                     rec += searchSubset[k]["Phone"].ToString();
                 }
@@ -146,7 +148,8 @@ namespace CareAmarillo
 
                 //}
                 //MessageBox.Show(rec);
-                return rec;
+                //return rec;
+                return testSet;
 
                 //}
             }

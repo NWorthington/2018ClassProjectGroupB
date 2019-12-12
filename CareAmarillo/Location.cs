@@ -16,8 +16,13 @@ namespace CareAmarillo
         public Location()
         {
             InitializeComponent();
-            string test = DatabaseProcess.ReadHumanServices();
-            lblLocations.Text = test;
+
+            //set variable then call the method
+            var test = DatabaseProcess.ReadHumanServices();
+            //dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.DataSource = test;
+            dataGridView1.DataMember = test.Tables[0].ToString();
+            //lblLocations.Text = test;
 
         }
 
