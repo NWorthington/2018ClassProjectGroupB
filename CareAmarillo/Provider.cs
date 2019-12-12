@@ -53,7 +53,7 @@ namespace CareAmarillo
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
-                    update.CommandText = "update EmergencyServicesProvider set EPhone = @newNumber where ID = @ID;";
+                    update.CommandText = "update EmergencyServicesProvider set EPhone = @Phone where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("Phone", newNumber));
                     update.Parameters.Add(new SqlParameter("id", ID));
                     update.ExecuteNonQuery();
@@ -65,7 +65,7 @@ namespace CareAmarillo
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
-                    update.CommandText = "update HumanServicesProvider set HPhone = @newNumber where ID = @ID;";
+                    update.CommandText = "update HumanServicesProvider set HPhone = @Phone where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("Phone", newNumber));
                     update.Parameters.Add(new SqlParameter("id", ID));
                     update.ExecuteNonQuery();
@@ -85,7 +85,7 @@ namespace CareAmarillo
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
-                    update.CommandText = "update EmergencyServicesProvider set ECity = @newCity where ID = @ID;";
+                    update.CommandText = "update EmergencyServicesProvider set ECity = @City where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("City", newCity));
                     update.Parameters.Add(new SqlParameter("id", ID));
                     update.ExecuteNonQuery();
@@ -97,7 +97,7 @@ namespace CareAmarillo
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
-                    update.CommandText = "update HumanServicesProvider set HCity = @newCity where ID = @ID;";
+                    update.CommandText = "update HumanServicesProvider set HCity = @City where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("City", newCity));
                     update.Parameters.Add(new SqlParameter("id", ID));
                     update.ExecuteNonQuery();
@@ -117,7 +117,7 @@ namespace CareAmarillo
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
-                    update.CommandText = "update EmergencyServicesProvider set EState = @newState where ID = @ID;";
+                    update.CommandText = "update EmergencyServicesProvider set EState = @State where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("State", newState));
                     update.Parameters.Add(new SqlParameter("id", ID));
                     update.ExecuteNonQuery();
@@ -129,7 +129,7 @@ namespace CareAmarillo
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
-                    update.CommandText = "update HumanServicesProvider set HState = @newState where ID = @ID;";
+                    update.CommandText = "update HumanServicesProvider set HState = @State where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("State", newState));
                     update.Parameters.Add(new SqlParameter("id", ID));
                     update.ExecuteNonQuery();
@@ -149,7 +149,7 @@ namespace CareAmarillo
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
-                    update.CommandText = "update EmergencyServicesProvider set EAddress = @newAddress where ID = @ID;";
+                    update.CommandText = "update EmergencyServicesProvider set EAddress = @Address where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("Address", newAddress));
                     update.Parameters.Add(new SqlParameter("id", ID));
                     update.ExecuteNonQuery();
@@ -161,7 +161,7 @@ namespace CareAmarillo
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
-                    update.CommandText = "update HumanServicesProvider set HAddress = @newAddress where ID = @ID;";
+                    update.CommandText = "update HumanServicesProvider set HAddress = @Address where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("Address", newAddress));
                     update.Parameters.Add(new SqlParameter("id", ID));
                     update.ExecuteNonQuery();
@@ -181,7 +181,7 @@ namespace CareAmarillo
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
-                    update.CommandText = "update EmergencyServicesProvider set CompanyName = @newCompanyName where ID = @ID;";
+                    update.CommandText = "update EmergencyServicesProvider set CompanyName = @CompanyName where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("CompanyName", newCompanyName));
                     update.Parameters.Add(new SqlParameter("id", ID));
                     update.ExecuteNonQuery();
@@ -193,7 +193,7 @@ namespace CareAmarillo
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
-                    update.CommandText = "update HumanServicesProvider set CompanyName = @newCompanyName where ID = @ID;";
+                    update.CommandText = "update HumanServicesProvider set CompanyName = @CompanyName where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("CompanyName", newCompanyName));
                     update.Parameters.Add(new SqlParameter("id", ID));
                     update.ExecuteNonQuery();
@@ -211,7 +211,7 @@ namespace CareAmarillo
             connection.Open();
             using (SqlCommand update = connection.CreateCommand())
             {
-                update.CommandText = "update ServicesOffered set  = @newVolunteerPositions where ID = @ID;";
+                update.CommandText = "update ServicesOffered set  = @Opportunities where ID = @ID;";
                 update.Parameters.Add(new SqlParameter("Opportunities", newVolunteerPositions));
                 update.Parameters.Add(new SqlParameter("id", ID));
                 update.ExecuteNonQuery();
@@ -224,7 +224,7 @@ namespace CareAmarillo
             connection.Open();
             using (SqlCommand update = connection.CreateCommand())
             {
-                update.CommandText = "update ServicesOffered set CriteriaForService = @newRequirements where ID = @ID;";
+                update.CommandText = "update ServicesOffered set CriteriaForService = @Criteria where ID = @ID;";
                 update.Parameters.Add(new SqlParameter("Criteria", newRequirements));
                 update.Parameters.Add(new SqlParameter("id", ID));
                 update.ExecuteNonQuery();
@@ -237,7 +237,7 @@ namespace CareAmarillo
             connection.Open();
             using (SqlCommand update = connection.CreateCommand())
             {
-                update.CommandText = "update ServicesOffered set ServiceType = @newServiceType where ID = @ID;";
+                update.CommandText = "update ServicesOffered set ServiceType = @ServiceType where ID = @ID;";
                 update.Parameters.Add(new SqlParameter("ServiceType", newServiceType));
                 update.Parameters.Add(new SqlParameter("id", ID));
                 update.ExecuteNonQuery();
@@ -250,7 +250,7 @@ namespace CareAmarillo
             connection.Open();
             using (SqlCommand update = connection.CreateCommand())
             {
-                update.CommandText = "update ServicesOffered set Description = @newDescription where ID = @ID;";
+                update.CommandText = "update ServicesOffered set Description = @Description where ID = @ID;";
                 update.Parameters.Add(new SqlParameter("Description", newDescription));
                 update.Parameters.Add(new SqlParameter("id", ID));
                 update.ExecuteNonQuery();
