@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using System.Data;
+using System.Data.Common;
+
 namespace CareAmarillo
 {
     public class DatabaseProcess
@@ -77,7 +80,7 @@ namespace CareAmarillo
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
-            MessageBox.Show(connection.ServerVersion);
+            //MessageBox.Show(connection.ServerVersion);
             //Console.WriteLine(connection.ServerVersion);
             //Console.ReadKey();
 
@@ -86,43 +89,66 @@ namespace CareAmarillo
             {
                 // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
                 readAllDatabaseRecords.CommandText =
-                    @"select ID as User_ID, CompanyName as Company, HEmail as Email, Hphone as Phone,   
-			HCity as City, HState As State, HAddress as Address from HumanServicesProvider";
-
+                    @"select dbo.HumanServicesProvider.CompanyName, HPhone as Phone, HCity,   
+			        HAddress as Address from dbo.HumanServicesProvider";
+                readAllDatabaseRecords.CommandType = CommandType.Text;
                 // Consider using parameterized queries when possible. ProfName below is the same @ProfName above in the SQL statement.
                 //readAllDatabaseRecords.Parameters.Add(new SqlParameter("id", 2));
 
                 // The using block for handling the IO
-                using (SqlDataReader reader = readAllDatabaseRecords.ExecuteReader())
-                {
+                //using (SqlDataReader reader = readAllDatabaseRecords.ExecuteReader())
+                //{
                     string rec = "";
 
                     // a dictionary to store the ordinal positions of each column in the table.
                     var columnNames = new Dictionary<string, int>();
 
-                    // Actually building the above dictionary. This should be done outside of any data-read loop for 
-                    // performance reasons.
-                    var columns = Enumerable.Range(0, reader.FieldCount).Select(reader.GetName).ToList();
-                    foreach (var columnName in columns)
-                    {
-                        columnNames.Add(columnName, reader.GetOrdinal(columnName.ToString()));
-                    }
+                // Actually building the above dictionary. This should be done outside of any data-read loop for 
+                // performance reasons.
+                //var columns = Enumerable.Range(0, reader.FieldCount).Select(reader.GetName).ToList();
+                //foreach (var columnName in columns)
+                //{
+                //    columnNames.Add(columnName, reader.GetOrdinal(columnName.ToString()));
+                //}
 
-                    // Get the data you want from the SQL Select and do whatever you want with it.
-                    while (reader.Read())
-                    {
-                        rec = reader.GetFieldValue<int>(columnNames["User_ID"]).ToString() + " ";
-                        rec += reader.GetFieldValue<string>(columnNames["Company"]) + " ";
-                        rec += reader.GetFieldValue<string>(columnNames["Email"]) + " ";
-                        rec += reader.GetFieldValue<string>(columnNames["Phone"]) + " ";
-                        rec += reader.GetFieldValue<string>(columnNames["City"]) + " ";
-                        rec += reader.GetFieldValue<string>(columnNames["State"]) + " ";
-                        rec += reader.GetFieldValue<string>(columnNames["Address"]);
-                        //Console.WriteLine(rec);
-                    }
-                    MessageBox.Show(rec);
-                    return rec;
+                // Get the data you want from the SQL Select and do whatever you want with it.
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+                    SqlDataAdapter testAdapter = new SqlDataAdapter();
+                    DataSet testSet = new DataSet("HumanServicesProvider");
+                    testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
+                    testAdapter.SelectCommand = readAllDatabaseRecords;
+
+                    testAdapter.Fill(testSet);
+
+
+                for (var i = 0; i < testSet.Tables[0].Rows.Count; i++)
+                {
+                    //rec += testSet.Tables[0].Rows[i]["CompanyName"];
+                   // rec += testSet.Tables[0].Rows[i]["Phone"];
+                    //rec += testSet.Tables[0].Rows[i]["Address"].ToString() + "\n";
                 }
+                var searchSubset = testSet.Tables[0].Select("HCity = 'Amarillo'");
+                for (var k = 0; k < searchSubset.Length; k++) {
+                    rec += searchSubset[k]["Phone"].ToString();
+                }
+
+                //while (reader.Read())
+                //{
+                //rec += reader.GetFieldValue<int>(columnNames["User_ID"]).ToString() + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["Company"]) + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["Email"]) + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["Phone"]) + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["City"]) + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["State"]) + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["Address"]);
+                //rec += "\n";
+                //Console.WriteLine(rec);
+
+                //}
+                //MessageBox.Show(rec);
+                return rec;
+
+                //}
             }
         }
 
