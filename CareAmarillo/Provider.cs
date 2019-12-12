@@ -17,7 +17,7 @@ namespace CareAmarillo
         {
             if (serviceType == 'E')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -29,7 +29,7 @@ namespace CareAmarillo
             }
             else if (serviceType == 'H')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -49,7 +49,7 @@ namespace CareAmarillo
         {
             if (serviceType == 'E')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -61,7 +61,7 @@ namespace CareAmarillo
             }
             else if (serviceType == 'H')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -81,7 +81,7 @@ namespace CareAmarillo
         {
             if (serviceType == 'E')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -93,7 +93,7 @@ namespace CareAmarillo
             }
             else if (serviceType == 'H')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -113,7 +113,7 @@ namespace CareAmarillo
         {
             if (serviceType == 'E')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -125,7 +125,7 @@ namespace CareAmarillo
             }
             else if (serviceType == 'H')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -145,7 +145,7 @@ namespace CareAmarillo
         {
             if (serviceType == 'E')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -157,7 +157,7 @@ namespace CareAmarillo
             }
             else if (serviceType == 'H')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -177,7 +177,7 @@ namespace CareAmarillo
         {
             if (serviceType == 'E')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -189,7 +189,7 @@ namespace CareAmarillo
             }
             else if (serviceType == 'H')
             {
-                connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
                 connection.Open();
                 using (SqlCommand update = connection.CreateCommand())
                 {
@@ -207,7 +207,7 @@ namespace CareAmarillo
 
         static public void UpdateVolunteerPositions(String newVolunteerPositions, int ID)
         {
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             using (SqlCommand update = connection.CreateCommand())
             {
@@ -220,7 +220,7 @@ namespace CareAmarillo
 
         static public void UpdateRequirements(String newRequirements, int ID)
         {
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             using (SqlCommand update = connection.CreateCommand())
             {
@@ -233,7 +233,7 @@ namespace CareAmarillo
 
         static public void UpdateServiceType(String newServiceType, int ID)
         {
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             using (SqlCommand update = connection.CreateCommand())
             {
@@ -246,7 +246,7 @@ namespace CareAmarillo
 
         static public void UpdateDescription(String newDescription, int ID)
         {
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             using (SqlCommand update = connection.CreateCommand())
             {
