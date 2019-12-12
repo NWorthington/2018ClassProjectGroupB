@@ -52,6 +52,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCareAmarillo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCareAmarillo.designer.cs">
+      <DependentUpon>FormCareAmarillo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCareLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCareLogin.designer.cs">
+      <DependentUpon>FormCareLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUniSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUniSearch.designer.cs">
+      <DependentUpon>FormUniSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Location.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +81,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCareAmarillo.resx">
+      <DependentUpon>FormCareAmarillo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCareLogin.resx">
+      <DependentUpon>FormCareLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUniSearch.resx">
+      <DependentUpon>FormUniSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
