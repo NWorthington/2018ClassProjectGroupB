@@ -92,6 +92,9 @@
     <EmbeddedResource Include="FormUniSearch.resx">
       <DependentUpon>FormUniSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Location.resx">
+      <DependentUpon>Location.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
