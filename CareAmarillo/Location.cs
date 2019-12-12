@@ -16,12 +16,14 @@ namespace CareAmarillo
         public Location()
         {
             InitializeComponent();
-            lblLocations
+            string test = DatabaseProcess.ReadHumanServices();
+            lbl.Text = test;
         }
 
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            
             this.Hide();
         }
     }

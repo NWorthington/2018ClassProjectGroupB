@@ -24,7 +24,7 @@ namespace CareAmarillo
             //DatabaseProcess.ReadHumanServices();
             //DatabaseProcess.ReadEmergencyServices();
             //DatabaseProcess.ReadServicesOffered();
-            DatabaseProcess.UpdateBedCount(1, 7);
+            //DatabaseProcess.UpdateBedCount(1, 7);
             //DatabaseProcess.UpdateVolunteers(1, 7);
             //DatabaseProcess.DeleteAUser(3);
 

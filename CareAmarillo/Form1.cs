@@ -26,6 +26,7 @@ namespace CareAmarillo
         {
             if (txtSearchBar.Text == ("LOCATION"))
             {
+                
                 locationSearchResults.Show();
                 this.Hide();
             }
