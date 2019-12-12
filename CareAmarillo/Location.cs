@@ -16,6 +16,7 @@ namespace CareAmarillo
         public Location()
         {
             InitializeComponent();
+            lblLocations
         }
 
 
