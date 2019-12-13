@@ -121,7 +121,7 @@ namespace ProjectTest
                         DBPass = reader.GetFieldValue<string>(columnNames["Password"]) + "";
                         HMID = reader.GetFieldValue<int>(columnNames["Human_Services"]);
                         ESID = reader.GetFieldValue<int>(columnNames["Emergency_Services"]);
-                        DBNewPass = reader.GetFieldValue<string>(columnNames["NewPass"]);
+                        DBNewPass = reader.GetFieldValue<string>(columnNames["NPass"]);
                         foundUser = true;
                     }
                     if (DBNewPass.Equals("Yes") || DBNewPass.Equals("yes"))
@@ -139,22 +139,19 @@ namespace ProjectTest
         }
 
         // The ID here needs to be the same as it is in the previous methods, otherwise users can change other people's passwords.
-        public void ChangePassword(int ID, string NewPassword)
+        public void ChangePassword(string ID, string NewPassword)
         {
             using (SqlCommand update = connection.CreateCommand())
             {
-                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
-                connection.Open();
                 update.CommandText = "update Users set UPassword = @Password where ID = @ID;";
-                update.Parameters.Add(new SqlParameter("Email", NewPassword));
+                update.Parameters.Add(new SqlParameter("Password", NewPassword));
                 update.Parameters.Add(new SqlParameter("ID", ID));
                 update.ExecuteNonQuery();
             }
             using (SqlCommand update = connection.CreateCommand())
             {
-                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
-                connection.Open();
                 update.CommandText = "update Users set NewPass = 'No' where ID = @ID;";
+                update.Parameters.Add(new SqlParameter("ID", ID));
                 update.ExecuteNonQuery();
             }
         }
