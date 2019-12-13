@@ -18,7 +18,10 @@ namespace ProjectTest
     class LoginWizard
     {
         static SqlConnection connection = new SqlConnection();
-        public string AuthenticateUser(string ID, string Password)
+        /* The NewPass variable will be passed out to the form, which will in turn allow users to input their new password,
+         * and trigger the ChangePassword method.
+         */
+        public string AuthenticateUser(string ID, string Password, out bool NewPass)
         {
             /* This method is designed to pull the ID and the Password from the end user, and check it against the database.
              * If the ID and Password match, then the user is given the correct level of authentication.
@@ -30,14 +33,15 @@ namespace ProjectTest
             SqlConnection connection = new SqlConnection();
             string DBID = ID;
             string DBPass = Password;
-            string HMID = "";
-            string ESID = "";
+            int HMID = 0;
+            int ESID = 0;
+            NewPass = false;
 
 
 
-            if (CredentialSearch(ref DBID, ref DBPass, out HMID, out ESID))
+            if (CredentialSearch(ref DBID, ref DBPass, out HMID, out ESID, out NewPass))
             {
-                if (HMID is null && ESID is null)
+                if (HMID == 3 && ESID == 3)
                 {
                     AuthenticationLevel = "High";
                 }
@@ -69,7 +73,7 @@ namespace ProjectTest
             return AuthenticationLevel;
         }
         // This is an altered version of the ReadDataBase function in the DatabaseProcess class that searches for specific values.
-        public bool CredentialSearch(ref string DBID, ref string DBPass, out string HMID, out string ESID)
+        public bool CredentialSearch(ref string DBID, ref string DBPass, out int HMID, out int ESID, out bool NewPass)
         {
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
@@ -77,13 +81,14 @@ namespace ProjectTest
             //MessageBox.Show(connection.ServerVersion);
             //Console.WriteLine(connection.ServerVersion);
             //Console.ReadKey();
-            HMID = "";
-            ESID = "";
+            HMID = 3;
+            ESID = 3;
+            string DBNewPass = "";
             using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
             {
                 // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
                 readAllDatabaseRecords.CommandText =
-                    @"select ID as User_ID, UPassword as Password, HID As Human_Services, EID as Emergency_Services
+                    @"select ID as User_ID, UPassword as Password, HID As Human_Services, EID as Emergency_Services, NewPass as NPass
                     from Users
                     WHERE ID = @ID AND UPassword = @UPassword";
 
@@ -114,13 +119,43 @@ namespace ProjectTest
                     {
                         DBID = reader.GetFieldValue<int>(columnNames["User_ID"]).ToString() + "";
                         DBPass = reader.GetFieldValue<string>(columnNames["Password"]) + "";
-                        HMID = reader.GetFieldValue<int>(columnNames["Human_Services"]) + "";
-                        ESID = reader.GetFieldValue<int>(columnNames["Emergency_Services"]) + "";
+                        HMID = reader.GetFieldValue<int>(columnNames["Human_Services"]);
+                        ESID = reader.GetFieldValue<int>(columnNames["Emergency_Services"]);
+                        DBNewPass = reader.GetFieldValue<string>(columnNames["NewPass"]);
                         foundUser = true;
+                    }
+                    if (DBNewPass.Equals("Yes") || DBNewPass.Equals("yes"))
+                    {
+                        NewPass = true;
+                    }
+                    else
+                    {
+                        NewPass = false;
                     }
                     return foundUser;
                 }
 
+            }
+        }
+
+        // The ID here needs to be the same as it is in the previous methods, otherwise users can change other people's passwords.
+        public void ChangePassword(int ID, string NewPassword)
+        {
+            using (SqlCommand update = connection.CreateCommand())
+            {
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+                connection.Open();
+                update.CommandText = "update Users set UPassword = @Password where ID = @ID;";
+                update.Parameters.Add(new SqlParameter("Email", NewPassword));
+                update.Parameters.Add(new SqlParameter("ID", ID));
+                update.ExecuteNonQuery();
+            }
+            using (SqlCommand update = connection.CreateCommand())
+            {
+                connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+                connection.Open();
+                update.CommandText = "update Users set NewPass = 'No' where ID = @ID;";
+                update.ExecuteNonQuery();
             }
         }
     }
