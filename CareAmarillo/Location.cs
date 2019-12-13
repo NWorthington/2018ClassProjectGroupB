@@ -18,10 +18,15 @@ namespace CareAmarillo
             InitializeComponent();
 
             //set variable then call the method for dataset to datagridview1
-            var test = DatabaseProcess.DataSetUsers();
+            //var test = DatabaseProcess.DataSetUsers();
             //var test = DatabaseProcess.DataSetHumanServices();
             //var test = DatabaseProcess.DataSetEmergencyServices();
             //var test = DatabaseProcess.DataSetServicesOffered();
+
+            //join table datasets
+            //var test = DatabaseProcess.TwoTableDataSetHumanOffered();
+            //var test = DatabaseProcess.TwoTableDataSetEmergencyOffered();
+            var test = DatabaseProcess.AllUserDataSet();
 
             dataGridView1.DataSource = test;
             dataGridView1.DataMember = test.Tables[0].ToString();

@@ -46,7 +46,7 @@ namespace CareAmarillo
 
 
                 SqlDataAdapter testAdapter = new SqlDataAdapter();
-                DataSet testSet = new DataSet("HumanServicesProvider");
+                DataSet testSet = new DataSet("Users");
                 //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
                 testAdapter.SelectCommand = readAllDatabaseRecords;
                 testAdapter.Fill(testSet);
@@ -232,7 +232,7 @@ namespace CareAmarillo
 
 
                 SqlDataAdapter testAdapter = new SqlDataAdapter();
-                DataSet testSet = new DataSet("HumanServicesProvider");
+                DataSet testSet = new DataSet("EmergencyServicesProvider");
                 //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
                 testAdapter.SelectCommand = readAllDatabaseRecords;
                 testAdapter.Fill(testSet);
@@ -324,7 +324,7 @@ namespace CareAmarillo
 
 
                 SqlDataAdapter testAdapter = new SqlDataAdapter();
-                DataSet testSet = new DataSet("HumanServicesProvider");
+                DataSet testSet = new DataSet("ServicesOffered");
                 //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
                 testAdapter.SelectCommand = readAllDatabaseRecords;
                 testAdapter.Fill(testSet);
@@ -463,11 +463,116 @@ namespace CareAmarillo
             }
         }
 
+        public static DataSet TwoTableDataSetHumanOffered()
+        {
+
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.Open();
 
 
+            using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
+            {
+
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+
+                // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
+                readAllDatabaseRecords.CommandText =
+                                @"select CompanyName as Name, HPhone as Phone, BedCount as Beds, VolunteerOpportunities as NeededVolunteers,
+						ServiceType as Services, Description as Info, CriteriaForService as Requirements, Location
+						from dbo.HumanServicesProvider
+						inner join dbo.ServicesOffered
+						on dbo.HumanServicesProvider.ID = dbo.ServicesOffered.IDHS";
+
+                readAllDatabaseRecords.CommandType = CommandType.Text;
 
 
+                SqlDataAdapter testAdapter = new SqlDataAdapter();
+                DataSet testSet = new DataSet("HumanServicesProvider");
+                //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
+                testAdapter.SelectCommand = readAllDatabaseRecords;
+                testAdapter.Fill(testSet);
 
+                connection.Close();
+
+                return testSet;
+
+            }
+        }
+
+        public static DataSet TwoTableDataSetEmergencyOffered()
+        {
+
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.Open();
+
+
+            using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
+            {
+
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+
+                // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
+                readAllDatabaseRecords.CommandText =
+                        @"select CompanyName as Name, EPhone as Phone, BedCount as Beds, VolunteerOpportunities as NeededVolunteers,
+						ServiceType as Services, Description as Info, CriteriaForService as Requirements, Location
+						from dbo.EmergencyServicesProvider
+						inner join dbo.ServicesOffered
+						on dbo.EmergencyServicesProvider.ID = dbo.ServicesOffered.IDHS";
+
+                readAllDatabaseRecords.CommandType = CommandType.Text;
+
+
+                SqlDataAdapter testAdapter = new SqlDataAdapter();
+                DataSet testSet = new DataSet("EmergencyServicesProvider");
+                testAdapter.SelectCommand = readAllDatabaseRecords;
+                testAdapter.Fill(testSet);
+
+                connection.Close();
+
+                return testSet;
+
+            }
+        }
+
+        public static DataSet AllUserDataSet()
+        {
+
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.Open();
+
+
+            using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
+            {
+
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+
+                // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
+                readAllDatabaseRecords.CommandText =
+                                @"select FirstName, LastName, UserAccess, NewPass
+									from dbo.HumanServicesProvider
+									inner join	dbo.Users
+									on dbo.HumanServicesProvider.ID = dbo.Users.HID
+									inner join dbo.EmergencyServicesProvider
+									on dbo.Users.EID = dbo.EmergencyServicesProvider.ID
+									order by UserAccess asc";
+
+                readAllDatabaseRecords.CommandType = CommandType.Text;
+
+
+                SqlDataAdapter testAdapter = new SqlDataAdapter();
+                DataSet testSet = new DataSet("Users");
+                testAdapter.SelectCommand = readAllDatabaseRecords;
+                testAdapter.Fill(testSet);
+
+                connection.Close();
+
+                return testSet;
+
+            }
+        }
 
 
 
