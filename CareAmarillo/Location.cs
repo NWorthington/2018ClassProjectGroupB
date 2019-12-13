@@ -17,12 +17,21 @@ namespace CareAmarillo
         {
             InitializeComponent();
 
-            //set variable then call the method
-            var test = DatabaseProcess.ReadHumanServices();
-            //dataGridView1.AutoGenerateColumns = true;
+            //set variable then call the method for dataset to datagridview1
+            var test = DatabaseProcess.DataSetUsers();
+            //var test = DatabaseProcess.DataSetHumanServices();
+            //var test = DatabaseProcess.DataSetEmergencyServices();
+            //var test = DatabaseProcess.DataSetServicesOffered();
+
             dataGridView1.DataSource = test;
             dataGridView1.DataMember = test.Tables[0].ToString();
-            //lblLocations.Text = test;
+ 
+
+            //calling methods with return string value to a label named lblLocations
+            //lblLocations.Text = DatabaseProcess.ReadDataBase();
+            //lblLocations.Text = DatabaseProcess.ReadHumanServices();
+            //lblLocations.Text = DatabaseProcess.ReadEmergencyServices();
+            //lblLocations.Text = DatabaseProcess.ReadServicesOffered();
 
         }
 
@@ -31,6 +40,11 @@ namespace CareAmarillo
         {
 
             this.Hide();
+        }
+
+        private void Location_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
