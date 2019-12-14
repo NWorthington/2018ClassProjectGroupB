@@ -17,16 +17,55 @@ namespace CareAmarillo
     public class DatabaseProcess
        
     {
-
         static SqlConnection connection = new SqlConnection();
-        static public void ReadDataBase()
+        public static DataSet DataSetUsers()
+        {
+
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.Open();
+            //MessageBox.Show(connection.ServerVersion);
+
+
+
+            using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
+            {
+
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+
+                // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
+                readAllDatabaseRecords.CommandText =
+                                @"select FirstName as FName, LastName as LName ,UPassword as Password, NewPass as NewUser,   
+						UserAccess as LastLogIn, HID as HumanServicesID, EID as EmergencyServicesID from dbo.Users";
+
+                readAllDatabaseRecords.CommandType = CommandType.Text;
+
+                // a dictionary to store the ordinal positions of each column in the table.
+                var columnNames = new Dictionary<string, int>();
+
+
+                SqlDataAdapter testAdapter = new SqlDataAdapter();
+                DataSet testSet = new DataSet("Users");
+                //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
+                testAdapter.SelectCommand = readAllDatabaseRecords;
+                testAdapter.Fill(testSet);
+
+                connection.Close();
+
+                return testSet;
+
+            }
+        }
+
+        
+        static public String ReadDataBase()
         {
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
-            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
             connection.Open();
-            MessageBox.Show(connection.ServerVersion);
-            //Console.WriteLine(connection.ServerVersion);
-            //Console.ReadKey();
+            //MessageBox.Show(connection.ServerVersion);
 
             using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
             {
@@ -35,9 +74,6 @@ namespace CareAmarillo
                     @"select ID as User_ID, FirstName as F_Name, LastName as L_Name, NewPass as New_User,   
                     UserAccess as Last_Login, HID As Human_Services, EID as Emergency_Services
                     from Users";
-
-                // Consider using parameterized queries when possible. ProfName below is the same @ProfName above in the SQL statement.
-                //readAllDatabaseRecords.Parameters.Add(new SqlParameter("id", 2));
 
                 // The using block for handling the IO
                 using (SqlDataReader reader = readAllDatabaseRecords.ExecuteReader())
@@ -68,100 +104,154 @@ namespace CareAmarillo
                         //Console.WriteLine(rec);
                         
                     }
-                    MessageBox.Show(rec);
+                    //MessageBox.Show(rec);
+                    connection.Close();
+                    return rec;
                 }
             }
         }
 
 
-        public static string ReadHumanServices()
+
+        public static DataSet DataSetHumanServices()
         {
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
-            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
             connection.Open();
             //MessageBox.Show(connection.ServerVersion);
-            //Console.WriteLine(connection.ServerVersion);
-            //Console.ReadKey();
+
+
+            using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
+            {
+
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+
+                // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
+                readAllDatabaseRecords.CommandText =
+                                @"select dbo.HumanServicesProvider.CompanyName as Company, HEmail as Email ,HPhone as Phone, HCity as City,   HState as State, 
+								HAddress as Address from dbo.HumanServicesProvider";
+
+                readAllDatabaseRecords.CommandType = CommandType.Text;
+
+                // a dictionary to store the ordinal positions of each column in the table.
+                var columnNames = new Dictionary<string, int>();
+
+
+                SqlDataAdapter testAdapter = new SqlDataAdapter();
+                DataSet testSet = new DataSet("HumanServicesProvider");
+                //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
+                testAdapter.SelectCommand = readAllDatabaseRecords;
+                testAdapter.Fill(testSet);
+
+                connection.Close();
+
+                return testSet;
+
+            }
+        }
+
+        public static String ReadHumanServices()
+        {
+
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.Open();
+            //MessageBox.Show(connection.ServerVersion);
+
 
 
             using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
             {
                 // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
                 readAllDatabaseRecords.CommandText =
-                    @"select dbo.HumanServicesProvider.CompanyName, HPhone as Phone, HCity,   
-			        HAddress as Address from dbo.HumanServicesProvider";
-                readAllDatabaseRecords.CommandType = CommandType.Text;
-                // Consider using parameterized queries when possible. ProfName below is the same @ProfName above in the SQL statement.
-                //readAllDatabaseRecords.Parameters.Add(new SqlParameter("id", 2));
+                    @"select ID as User_ID, CompanyName as Company, HEmail as Email, Hphone as Phone,   
+			HCity as City, HState As State, HAddress as Address from HumanServicesProvider";
 
                 // The using block for handling the IO
-                //using (SqlDataReader reader = readAllDatabaseRecords.ExecuteReader())
-                //{
+                using (SqlDataReader reader = readAllDatabaseRecords.ExecuteReader())
+                {
                     string rec = "";
 
                     // a dictionary to store the ordinal positions of each column in the table.
                     var columnNames = new Dictionary<string, int>();
 
-                // Actually building the above dictionary. This should be done outside of any data-read loop for 
-                // performance reasons.
-                //var columns = Enumerable.Range(0, reader.FieldCount).Select(reader.GetName).ToList();
-                //foreach (var columnName in columns)
-                //{
-                //    columnNames.Add(columnName, reader.GetOrdinal(columnName.ToString()));
-                //}
+                    // Actually building the above dictionary. This should be done outside of any data-read loop for 
+                    // performance reasons.
+                    var columns = Enumerable.Range(0, reader.FieldCount).Select(reader.GetName).ToList();
+                    foreach (var columnName in columns)
+                    {
+                        columnNames.Add(columnName, reader.GetOrdinal(columnName.ToString()));
+                    }
 
-                // Get the data you want from the SQL Select and do whatever you want with it.
-                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
-                    SqlDataAdapter testAdapter = new SqlDataAdapter();
-                    DataSet testSet = new DataSet("HumanServicesProvider");
-                    testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
-                    testAdapter.SelectCommand = readAllDatabaseRecords;
-
-                    testAdapter.Fill(testSet);
-
-
-                for (var i = 0; i < testSet.Tables[0].Rows.Count; i++)
-                {
-                    //rec += testSet.Tables[0].Rows[i]["CompanyName"];
-                   // rec += testSet.Tables[0].Rows[i]["Phone"];
-                    //rec += testSet.Tables[0].Rows[i]["Address"].ToString() + "\n";
+                    // Get the data you want from the SQL Select and do whatever you want with it.
+                    while (reader.Read())
+                    {
+                        rec = reader.GetFieldValue<int>(columnNames["User_ID"]).ToString() + " ";
+                        rec += reader.GetFieldValue<string>(columnNames["Company"]) + " ";
+                        rec += reader.GetFieldValue<string>(columnNames["Email"]) + " ";
+                        rec += reader.GetFieldValue<string>(columnNames["Phone"]) + " ";
+                        rec += reader.GetFieldValue<string>(columnNames["City"]) + " ";
+                        rec += reader.GetFieldValue<string>(columnNames["State"]) + " ";
+                        rec += reader.GetFieldValue<string>(columnNames["Address"]);
+                        Console.WriteLine(rec);
+                    }
+                    connection.Close();
+                    return rec;
                 }
-                var searchSubset = testSet.Tables[0].Select("HCity = 'Amarillo'");
-                for (var k = 0; k < searchSubset.Length; k++) {
-                    rec += searchSubset[k]["Phone"].ToString();
-                }
-
-                //while (reader.Read())
-                //{
-                //rec += reader.GetFieldValue<int>(columnNames["User_ID"]).ToString() + " ";
-                //rec += reader.GetFieldValue<string>(columnNames["Company"]) + " ";
-                //rec += reader.GetFieldValue<string>(columnNames["Email"]) + " ";
-                //rec += reader.GetFieldValue<string>(columnNames["Phone"]) + " ";
-                //rec += reader.GetFieldValue<string>(columnNames["City"]) + " ";
-                //rec += reader.GetFieldValue<string>(columnNames["State"]) + " ";
-                //rec += reader.GetFieldValue<string>(columnNames["Address"]);
-                //rec += "\n";
-                //Console.WriteLine(rec);
-
-                //}
-                //MessageBox.Show(rec);
-                return rec;
-
-                //}
+                
             }
         }
 
-
-        public static void ReadEmergencyServices()
+        public static DataSet DataSetEmergencyServices()
         {
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
-            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
             connection.Open();
-            MessageBox.Show(connection.ServerVersion);
-            //Console.WriteLine(connection.ServerVersion);
-            //Console.ReadKey();
+            //MessageBox.Show(connection.ServerVersion);
+
+
+            using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
+            {
+
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+
+                // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
+                readAllDatabaseRecords.CommandText =
+                                @"select dbo.EmergencyServicesProvider.CompanyName as Company, EEmail as Email ,EPhone as Phone, ECity as City,   EState as State, 
+						EAddress as Address from dbo.EmergencyServicesProvider";
+
+                readAllDatabaseRecords.CommandType = CommandType.Text;
+
+                // a dictionary to store the ordinal positions of each column in the table.
+                var columnNames = new Dictionary<string, int>();
+
+
+                SqlDataAdapter testAdapter = new SqlDataAdapter();
+                DataSet testSet = new DataSet("EmergencyServicesProvider");
+                //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
+                testAdapter.SelectCommand = readAllDatabaseRecords;
+                testAdapter.Fill(testSet);
+
+                connection.Close();
+
+                return testSet;
+
+            }
+        }
+
+        public static String ReadEmergencyServices()
+        {
+
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.Open();
+            //MessageBox.Show(connection.ServerVersion);
 
 
             using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
@@ -169,10 +259,8 @@ namespace CareAmarillo
                 // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
                 readAllDatabaseRecords.CommandText =
                     @"select ID as User_ID, CompanyName as Company, EEmail as Email, Ephone as Phone,   
-	ECity as City, EState As State, EAddress as Address from EmergencyServicesProvider";
+	                ECity as City, EState As State, EAddress as Address from EmergencyServicesProvider";
 
-                // Consider using parameterized queries when possible. ProfName below is the same @ProfName above in the SQL statement.
-                //readAllDatabaseRecords.Parameters.Add(new SqlParameter("id", 2));
 
                 // The using block for handling the IO
                 using (SqlDataReader reader = readAllDatabaseRecords.ExecuteReader())
@@ -202,21 +290,60 @@ namespace CareAmarillo
                         rec += reader.GetFieldValue<string>(columnNames["Address"]);
                         //Console.WriteLine(rec);
                     }
-                    MessageBox.Show(rec);
+                    //MessageBox.Show(rec);
+                    connection.Close();
+                    return rec;
                 }
             }
         }
 
-
-        public static void ReadServicesOffered()
+        public static DataSet DataSetServicesOffered()
         {
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
-            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
             connection.Open();
-            MessageBox.Show(connection.ServerVersion);
-            //Console.WriteLine(connection.ServerVersion);
-            //Console.ReadKey();
+            //MessageBox.Show(connection.ServerVersion);
+
+
+            using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
+            {
+
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+
+                // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
+                readAllDatabaseRecords.CommandText =
+                        @"select IDHS as HumanServicesProvider, IDES as EmergencyServicesProvider ,BedCount as Beds, VolunteerOpportunities as Volunteers,   
+						ServiceType as Services, Description as Info, CriteriaForService as Requirements, Location as Address from dbo.ServicesOffered";
+
+                readAllDatabaseRecords.CommandType = CommandType.Text;
+
+                // a dictionary to store the ordinal positions of each column in the table.
+                //var columnNames = new Dictionary<string, int>();
+
+
+                SqlDataAdapter testAdapter = new SqlDataAdapter();
+                DataSet testSet = new DataSet("ServicesOffered");
+                //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
+                testAdapter.SelectCommand = readAllDatabaseRecords;
+                testAdapter.Fill(testSet);
+
+                connection.Close();
+
+                return testSet;
+
+            }
+        }
+
+        public static String ReadServicesOffered()
+        {
+
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.Open();
+            //MessageBox.Show(connection.ServerVersion);
 
 
             using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
@@ -224,10 +351,8 @@ namespace CareAmarillo
                 // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
                 readAllDatabaseRecords.CommandText =
                     @"select ID as User_ID, BedCount as Bed, VolunteerOpportunities as Volunteers, ServiceType as Type,   
-	Description as Info, CriteriaForService As Criteria, Location as Address from ServicesOffered";
+                	Description as Info, CriteriaForService As Criteria, Location as Address from ServicesOffered";
 
-                // Consider using parameterized queries when possible. ProfName below is the same @ProfName above in the SQL statement.
-                //readAllDatabaseRecords.Parameters.Add(new SqlParameter("id", 2));
 
                 // The using block for handling the IO
                 using (SqlDataReader reader = readAllDatabaseRecords.ExecuteReader())
@@ -257,7 +382,9 @@ namespace CareAmarillo
                         rec += reader.GetFieldValue<string>(columnNames["Address"]);
                         //Console.WriteLine(rec);
                     }
-                    MessageBox.Show(rec);
+                    //MessageBox.Show(rec);
+                    connection.Close();
+                    return rec;
                 }
             }
         }
@@ -268,14 +395,13 @@ namespace CareAmarillo
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
-            MessageBox.Show(connection.ServerVersion);
-            //Console.WriteLine(connection.ServerVersion);
-            //Console.ReadKey();
+            //MessageBox.Show(connection.ServerVersion);
+
 
             using (SqlCommand insertNewUser = connection.CreateCommand())
             {
                 insertNewUser.CommandText = "insert into Users values (@FirstName, @LastName, " +
-                    "@UPassword, @NewPass, @UserAccess, @HID, @EID);";
+                                              "@UPassword, @NewPass, @UserAccess, @HID, @EID);";
 
                 insertNewUser.Parameters.Add(new SqlParameter("FirstName", firstName));
                 insertNewUser.Parameters.Add(new SqlParameter("LastName", lastName));
@@ -293,9 +419,7 @@ namespace CareAmarillo
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
-            MessageBox.Show(connection.ServerVersion);
-            //Console.WriteLine(connection.ServerVersion);
-            //Console.ReadKey();
+            //MessageBox.Show(connection.ServerVersion);
 
             using (SqlCommand updateBed = connection.CreateCommand())
             {
@@ -312,9 +436,7 @@ namespace CareAmarillo
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
-            MessageBox.Show(connection.ServerVersion);
-            //Console.WriteLine(connection.ServerVersion);
-            //Console.ReadKey();
+            //MessageBox.Show(connection.ServerVersion);
 
             using (SqlCommand updateVols = connection.CreateCommand())
             {
@@ -331,9 +453,7 @@ namespace CareAmarillo
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
-            MessageBox.Show(connection.ServerVersion);
-            //Console.WriteLine(connection.ServerVersion);
-            //Console.ReadKey();
+            //MessageBox.Show(connection.ServerVersion);
 
             using (SqlCommand deleteProf = connection.CreateCommand())
             {
@@ -343,5 +463,212 @@ namespace CareAmarillo
             }
         }
 
+        public static DataSet TwoTableDataSetHumanOffered()
+        {
+
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.Open();
+
+
+            using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
+            {
+
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+
+                // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
+                readAllDatabaseRecords.CommandText =
+                                @"select CompanyName as Name, HPhone as Phone, BedCount as Beds, VolunteerOpportunities as NeededVolunteers,
+						ServiceType as Services, Description as Info, CriteriaForService as Requirements, Location
+						from dbo.HumanServicesProvider
+						inner join dbo.ServicesOffered
+						on dbo.HumanServicesProvider.ID = dbo.ServicesOffered.IDHS";
+
+                readAllDatabaseRecords.CommandType = CommandType.Text;
+
+
+                SqlDataAdapter testAdapter = new SqlDataAdapter();
+                DataSet testSet = new DataSet("HumanServicesProvider");
+                //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
+                testAdapter.SelectCommand = readAllDatabaseRecords;
+                testAdapter.Fill(testSet);
+
+                connection.Close();
+
+                return testSet;
+
+            }
+        }
+
+        public static DataSet TwoTableDataSetEmergencyOffered()
+        {
+
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.Open();
+
+
+            using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
+            {
+
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+
+                // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
+                readAllDatabaseRecords.CommandText =
+                        @"select CompanyName as Name, EPhone as Phone, BedCount as Beds, VolunteerOpportunities as NeededVolunteers,
+						ServiceType as Services, Description as Info, CriteriaForService as Requirements, Location
+						from dbo.EmergencyServicesProvider
+						inner join dbo.ServicesOffered
+						on dbo.EmergencyServicesProvider.ID = dbo.ServicesOffered.IDHS";
+
+                readAllDatabaseRecords.CommandType = CommandType.Text;
+
+
+                SqlDataAdapter testAdapter = new SqlDataAdapter();
+                DataSet testSet = new DataSet("EmergencyServicesProvider");
+                testAdapter.SelectCommand = readAllDatabaseRecords;
+                testAdapter.Fill(testSet);
+
+                connection.Close();
+
+                return testSet;
+
+            }
+        }
+
+        public static DataSet AllUserDataSet()
+        {
+
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.Open();
+
+
+            using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
+            {
+
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+
+                // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
+                readAllDatabaseRecords.CommandText =
+                                @"select FirstName, LastName, UserAccess, NewPass
+									from dbo.HumanServicesProvider
+									inner join	dbo.Users
+									on dbo.HumanServicesProvider.ID = dbo.Users.HID
+									inner join dbo.EmergencyServicesProvider
+									on dbo.Users.EID = dbo.EmergencyServicesProvider.ID
+									order by UserAccess asc";
+
+                readAllDatabaseRecords.CommandType = CommandType.Text;
+
+
+                SqlDataAdapter testAdapter = new SqlDataAdapter();
+                DataSet testSet = new DataSet("Users");
+                testAdapter.SelectCommand = readAllDatabaseRecords;
+                testAdapter.Fill(testSet);
+
+                connection.Close();
+
+                return testSet;
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        //********************These are the notes from after class on datasets********************
+        //********************This code to be removed before final submission*********************
+        /*   
+        public static DataSet ReadHumanServices()
+        {
+
+            //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
+            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.Open();
+            //MessageBox.Show(connection.ServerVersion);
+            //Console.WriteLine(connection.ServerVersion);
+            //Console.ReadKey();
+
+
+            using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
+            {
+                // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
+                readAllDatabaseRecords.CommandText =
+                    @"select dbo.HumanServicesProvider.CompanyName, HPhone as Phone, HCity,   
+			        HAddress as Address from dbo.HumanServicesProvider";
+                readAllDatabaseRecords.CommandType = CommandType.Text;
+                // Consider using parameterized queries when possible. ProfName below is the same @ProfName above in the SQL statement.
+                //readAllDatabaseRecords.Parameters.Add(new SqlParameter("id", 2));
+
+                // The using block for handling the IO
+                //using (SqlDataReader reader = readAllDatabaseRecords.ExecuteReader())
+                //{
+                string rec = "";
+
+                // a dictionary to store the ordinal positions of each column in the table.
+                var columnNames = new Dictionary<string, int>();
+
+                // Actually building the above dictionary. This should be done outside of any data-read loop for 
+                // performance reasons.
+                //var columns = Enumerable.Range(0, reader.FieldCount).Select(reader.GetName).ToList();
+                //foreach (var columnName in columns)
+                //{
+                //    columnNames.Add(columnName, reader.GetOrdinal(columnName.ToString()));
+                //}
+
+                // Get the data you want from the SQL Select and do whatever you want with it.
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+                SqlDataAdapter testAdapter = new SqlDataAdapter();
+                DataSet testSet = new DataSet("HumanServicesProvider");
+                //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
+                testAdapter.SelectCommand = readAllDatabaseRecords;
+
+                testAdapter.Fill(testSet);
+
+
+                for (var i = 0; i < testSet.Tables[0].Rows.Count; i++)
+                {
+                    //rec += testSet.Tables[0].Rows[i]["CompanyName"];
+                    // rec += testSet.Tables[0].Rows[i]["Phone"];
+                    //rec += testSet.Tables[0].Rows[i]["Address"].ToString() + "\n";
+                }
+
+                //pass in table then search item
+                var searchSubset = testSet.Tables[0].Select("HCity = 'Dumas'");
+                for (var k = 0; k < searchSubset.Length; k++)
+                {
+                    rec += searchSubset[k]["Phone"].ToString();
+                }
+
+                //while (reader.Read())
+                //{
+                //rec += reader.GetFieldValue<int>(columnNames["User_ID"]).ToString() + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["Company"]) + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["Email"]) + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["Phone"]) + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["City"]) + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["State"]) + " ";
+                //rec += reader.GetFieldValue<string>(columnNames["Address"]);
+                //rec += "\n";
+                //Console.WriteLine(rec);
+
+                //}
+                //MessageBox.Show(rec);
+                //return rec;
+                return testSet;
+
+                //}
+            }
+        }
+        */
     }
 }
