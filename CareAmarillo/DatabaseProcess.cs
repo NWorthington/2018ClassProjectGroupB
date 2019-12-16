@@ -22,8 +22,8 @@ namespace CareAmarillo
         {
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
-            //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            //connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
             connection.Open();
             //MessageBox.Show(connection.ServerVersion);
 
@@ -50,7 +50,7 @@ namespace CareAmarillo
                 //testAdapter.TableMappings.Add(new DataTableMapping("dbo.HumanServicesProvider", "HumanServicesProvider"));
                 testAdapter.SelectCommand = readAllDatabaseRecords;
                 testAdapter.Fill(testSet);
-
+                
                 connection.Close();
 
                 return testSet;
@@ -63,7 +63,7 @@ namespace CareAmarillo
         {
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             //MessageBox.Show(connection.ServerVersion);
 
@@ -118,7 +118,7 @@ namespace CareAmarillo
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             //MessageBox.Show(connection.ServerVersion);
 
@@ -157,7 +157,7 @@ namespace CareAmarillo
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             //MessageBox.Show(connection.ServerVersion);
 
@@ -210,7 +210,7 @@ namespace CareAmarillo
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             //MessageBox.Show(connection.ServerVersion);
 
@@ -249,7 +249,7 @@ namespace CareAmarillo
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             //MessageBox.Show(connection.ServerVersion);
 
@@ -302,7 +302,7 @@ namespace CareAmarillo
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             //MessageBox.Show(connection.ServerVersion);
 
@@ -341,7 +341,7 @@ namespace CareAmarillo
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
             //MessageBox.Show(connection.ServerVersion);
 
@@ -467,7 +467,7 @@ namespace CareAmarillo
         {
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
 
 
@@ -504,7 +504,7 @@ namespace CareAmarillo
         {
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
 
 
@@ -540,7 +540,7 @@ namespace CareAmarillo
         {
 
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
-            connection.ConnectionString = "Server=DESKTOP-ADO4RHU\\CHRIS;Database=Project2;Trusted_Connection = True;";
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
 
 
