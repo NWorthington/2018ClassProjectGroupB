@@ -13,7 +13,7 @@ using System.IO;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
-namespace ProjectTest
+namespace CareAmarillo
 {
     class LoginWizard
     {
@@ -33,27 +33,32 @@ namespace ProjectTest
             SqlConnection connection = new SqlConnection();
             string DBID = ID;
             string DBPass = Password;
-            int HMID = 0;
-            int ESID = 0;
+            //int HMID = 0;
+            //int ESID = 0;
             NewPass = false;
 
 
 
-            if (CredentialSearch(ref DBID, ref DBPass, out HMID, out ESID, out NewPass))
+            /*if (CredentialSearch(ref DBID, ref DBPass, out AuthenticationLevel, out NewPass))
             {
                 if (HMID == 3 && ESID == 3)
                 {
-                    AuthenticationLevel = "High";
+                    AuthenticationLevel = "Admin";
+                }
+                else if(HMID == 2)
+                {
+                    AuthenticationLevel = "Human Services";
                 }
                 else
                 {
-                    AuthenticationLevel = "Medium";
+                    AuthenticationLevel = "Emergency Shelter";
                 }
             }
             else
             {
                 AuthenticationLevel = "Invalid ID or Password";
             }
+            */
             // (NO LONGER NECESSARY)There also isn't a database to pull from so I will use a few files.
             //var IDReader = new StreamReader("C:\\Users\\programmer\\Desktop\\ID.txt");
             //var PassReader = new StreamReader("C:\\Users\\programmer\\Desktop\\Password.txt");
@@ -73,7 +78,7 @@ namespace ProjectTest
             return AuthenticationLevel;
         }
         // This is an altered version of the ReadDataBase function in the DatabaseProcess class that searches for specific values.
-        public bool CredentialSearch(ref string DBID, ref string DBPass, out int HMID, out int ESID, out bool NewPass)
+        public bool CredentialSearch(ref string DBID, ref string DBPass, out string AuthenticationLevel, out bool NewPass)
         {
             //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password = myPassword;
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
@@ -81,14 +86,15 @@ namespace ProjectTest
             //MessageBox.Show(connection.ServerVersion);
             //Console.WriteLine(connection.ServerVersion);
             //Console.ReadKey();
-            HMID = 3;
-            ESID = 3;
+            //HMID = 3;
+            //ESID = 3;
+            AuthenticationLevel = "";
             string DBNewPass = "";
             using (SqlCommand readAllDatabaseRecords = connection.CreateCommand())
             {
                 // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
                 readAllDatabaseRecords.CommandText =
-                    @"select ID as User_ID, UPassword as Password, HID As Human_Services, EID as Emergency_Services, NewPass as NPass
+                    @"select ID as User_ID, UPassword as Password, UserAccess as AccessLevel, EID as Emergency_Services, NewPass as NPass
                     from Users
                     WHERE ID = @ID AND UPassword = @UPassword";
 
@@ -119,8 +125,8 @@ namespace ProjectTest
                     {
                         DBID = reader.GetFieldValue<int>(columnNames["User_ID"]).ToString() + "";
                         DBPass = reader.GetFieldValue<string>(columnNames["Password"]) + "";
-                        HMID = reader.GetFieldValue<int>(columnNames["Human_Services"]);
-                        ESID = reader.GetFieldValue<int>(columnNames["Emergency_Services"]);
+                        AuthenticationLevel = reader.GetFieldValue<string>(columnNames["AccessLevel"]);
+                        //ESID = reader.GetFieldValue<int>(columnNames["Emergency_Services"]);
                         DBNewPass = reader.GetFieldValue<string>(columnNames["NPass"]);
                         foundUser = true;
                     }
