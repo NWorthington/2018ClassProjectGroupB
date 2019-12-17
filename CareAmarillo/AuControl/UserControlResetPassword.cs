@@ -15,6 +15,20 @@ namespace CareAmarillo.AuControl
         public UserControlResetPassword()
         {
             InitializeComponent();
+            var test = DatabaseProcess.AllUserDataSet();
+
+            dataGridView1.DataSource = test;
+            dataGridView1.DataMember = test.Tables[0].ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var userID = int.Parse(txtID.Text);
+            var newPassword = txtNewPassword.Text;
+            LoginWizard loginWizard = new LoginWizard();
+            loginWizard.AdminChangePassword(userID, newPassword);
+            txtID.Clear();
+            txtNewPassword.Clear();
         }
     }
 }

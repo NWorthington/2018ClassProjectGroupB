@@ -42,18 +42,12 @@ namespace CareAmarillo
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            
-            if (show2)
-            {
-                plSidebar.Visible = false;
-                show2 = false;
-            }
-            else
-            {
-                plSidebar.Visible = true;
-                show2 = true;
-            }
-            Application.DoEvents();
+            userControlAccountsAu1.BringToFront();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            userControlResetPassword1.BringToFront();
         }
     }
 }

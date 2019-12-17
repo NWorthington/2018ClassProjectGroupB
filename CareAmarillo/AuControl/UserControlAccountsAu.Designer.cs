@@ -32,7 +32,7 @@
             this.btnDisable = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.lblAccounts = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +53,7 @@
             this.btnDisable.TabIndex = 1;
             this.btnDisable.Text = "Disable Account";
             this.btnDisable.UseVisualStyleBackColor = true;
+            this.btnDisable.Click += new System.EventHandler(this.btnDisable_Click);
             // 
             // btnDelete
             // 
@@ -62,6 +63,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete Account";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lblAccounts
             // 
@@ -73,12 +75,12 @@
             this.lblAccounts.TabIndex = 3;
             this.lblAccounts.Text = "Accounts";
             // 
-            // textBox1
+            // txtID
             // 
-            this.textBox1.Location = new System.Drawing.Point(136, 326);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(327, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtID.Location = new System.Drawing.Point(136, 326);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(327, 20);
+            this.txtID.TabIndex = 4;
             // 
             // label1
             // 
@@ -94,7 +96,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblAccounts);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnDisable);
@@ -113,7 +115,7 @@
         private System.Windows.Forms.Button btnDisable;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label lblAccounts;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label1;
     }
 }

@@ -159,6 +159,7 @@
             this.Name = "formCareAmarillo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CareAmarillo";
+            this.Load += new System.EventHandler(this.FormCareAmarillo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxCareAmarillo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCareText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSearch)).EndInit();
