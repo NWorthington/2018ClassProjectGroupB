@@ -12,7 +12,7 @@ namespace CareAmarillo
     {
         static SqlConnection connection = new SqlConnection();
 
-        public static List<string> SearchDataset( string wordSearched)
+        public List<string> SearchDataset( string wordSearched)
         {
             List<string> rowList = new List<string>();
 

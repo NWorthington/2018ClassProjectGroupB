@@ -448,6 +448,26 @@ namespace CareAmarillo
             }
         }
 
+        static public void DisableAUser(int id, string access)
+        {
+            //setting up connection string to server
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.Open();
+            MessageBox.Show(connection.ServerVersion);
+
+            using (SqlCommand disableUser = connection.CreateCommand())
+            {
+                //checking connection by checking server version
+                System.Diagnostics.Debug.WriteLine(connection.ServerVersion);
+
+
+                //setting up sql string for query delete
+                disableUser.CommandText = "update Users set UserAccess = @useraccess where ID = @id;";
+                disableUser.Parameters.Add(new SqlParameter("useraccess", access));
+                disableUser.Parameters.Add(new SqlParameter("id", id));
+                disableUser.ExecuteNonQuery();
+            }
+        }
 
         static public void DeleteAUser(int id)
         {

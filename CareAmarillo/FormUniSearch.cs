@@ -16,5 +16,14 @@ namespace CareAmarillo
         {
             InitializeComponent();
         }
+
+        private void PictureBox2_Click(object sender, EventArgs e)
+        {
+            string wordSearched = textBox1.Text;
+            var userSearch = new User();
+            userSearch.SearchDataset(wordSearched);
+        }
+
+        
     }
 }
