@@ -34,8 +34,8 @@ namespace CareAmarillo
             InputID = tbxUsername.Text;
             InputPassword = tbxPassword.Text;
             Rank = loginWizard.AuthenticateUser(InputID, InputPassword, out NewPass);
-            // If this is the first time they've logged in then they are prompted to change their password.
-            if (NewPass)
+            // [NEVER GOT TO WORK] If this is the first time they've logged in then they are prompted to change their password.
+            /*if (NewPass)
             {
                 tbxUsername.Text = "";
                 tbxPassword.Text = "";
@@ -43,39 +43,44 @@ namespace CareAmarillo
                 lblPassword.Visible = false;
                 lblNewPassword.Visible = true;
                 lblConPassword.Visible = true;
-                //System.Timers.Timer timer = new System.Timers.Timer(5000);
-                while (tbxUsername.Text is null || tbxPassword.Text is null || !tbxUsername.Equals(tbxPassword))
-                {
-
-                  //  timer.AutoReset = false;
-                    //timer.Start();
-                }
-                NewPassword = tbxUsername.Text;
-                loginWizard.ChangePassword(InputID, NewPassword);
-                NewPass = false;
-                MessageBox.Show("NewPass = " + NewPass.ToString(), "NewPassword = " + NewPassword);
+                btnChange.Visible = true;
+                btnLogin.Visible = false;
+                //btnChange_Click(sender, e, NewPassword, NewPass, InputID);
             }
+            */
             // The user is now directed to the appropriate form.
             if(Rank.Equals("Admin"))
             {
                 //this.FormClosed +=
                 new FormAu().Show();
-                this.Close();
+                this.Hide();
             }
-            else if(Rank.Equals("Human Resources"))
+
+            else if (Rank.Equals("Human Resources"))
             {
                 new FormHS().Show();
-                this.Close();
+                this.Hide();
             }
             else if(Rank.Equals("Emergency Shelter"))
             {
                 new FormES().Show();
-                this.Close();
+                this.Hide();
             }
             else
             {
                 lblInvalid.Visible = true;
             }
+
         }
+
+        /*private void btnChange_Click(object sender, EventArgs e, string NewPassword, bool NewPass, string InputID)
+        {
+            LoginWizard loginWizard = new LoginWizard();
+            NewPassword = tbxUsername.Text;
+            loginWizard.ChangePassword(InputID, NewPassword);
+            NewPass = false;
+            MessageBox.Show("NewPass = " + NewPass.ToString(), "NewPassword = " + NewPassword);
+        }
+        */
     }
 }
