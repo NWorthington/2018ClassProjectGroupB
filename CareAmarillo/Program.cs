@@ -37,7 +37,8 @@ namespace CareAmarillo
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormUniSearch());
+            Application.Run(new FormCareLogin());
+            //FormUniSearch
 
             // The methods for SQL interaction.
 

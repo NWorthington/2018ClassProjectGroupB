@@ -48,6 +48,7 @@
             this.pbxCheck2 = new System.Windows.Forms.PictureBox();
             this.pbxCheck1 = new System.Windows.Forms.PictureBox();
             this.lblInvalid = new System.Windows.Forms.Label();
+            this.btnChange = new System.Windows.Forms.Button();
             this.plTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCareText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCareLogo)).BeginInit();
@@ -208,7 +209,7 @@
             // 
             this.pbxRed2.Image = ((System.Drawing.Image)(resources.GetObject("pbxRed2.Image")));
             this.pbxRed2.Location = new System.Drawing.Point(202, 212);
-            this.pbxRed2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pbxRed2.Margin = new System.Windows.Forms.Padding(1);
             this.pbxRed2.Name = "pbxRed2";
             this.pbxRed2.Size = new System.Drawing.Size(15, 14);
             this.pbxRed2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -219,7 +220,7 @@
             // 
             this.pbxRed1.Image = ((System.Drawing.Image)(resources.GetObject("pbxRed1.Image")));
             this.pbxRed1.Location = new System.Drawing.Point(202, 134);
-            this.pbxRed1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pbxRed1.Margin = new System.Windows.Forms.Padding(1);
             this.pbxRed1.Name = "pbxRed1";
             this.pbxRed1.Size = new System.Drawing.Size(15, 14);
             this.pbxRed1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -231,7 +232,7 @@
             this.pbxCheck2.BackColor = System.Drawing.Color.Transparent;
             this.pbxCheck2.Image = ((System.Drawing.Image)(resources.GetObject("pbxCheck2.Image")));
             this.pbxCheck2.Location = new System.Drawing.Point(202, 211);
-            this.pbxCheck2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pbxCheck2.Margin = new System.Windows.Forms.Padding(1);
             this.pbxCheck2.Name = "pbxCheck2";
             this.pbxCheck2.Size = new System.Drawing.Size(15, 14);
             this.pbxCheck2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -243,7 +244,7 @@
             this.pbxCheck1.BackColor = System.Drawing.Color.Transparent;
             this.pbxCheck1.Image = ((System.Drawing.Image)(resources.GetObject("pbxCheck1.Image")));
             this.pbxCheck1.Location = new System.Drawing.Point(202, 134);
-            this.pbxCheck1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pbxCheck1.Margin = new System.Windows.Forms.Padding(1);
             this.pbxCheck1.Name = "pbxCheck1";
             this.pbxCheck1.Size = new System.Drawing.Size(15, 14);
             this.pbxCheck1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -260,12 +261,24 @@
             this.lblInvalid.Text = "Invalid ID or Password";
             this.lblInvalid.Visible = false;
             // 
+            // btnChange
+            // 
+            this.btnChange.Location = new System.Drawing.Point(129, 300);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(75, 23);
+            this.btnChange.TabIndex = 18;
+            this.btnChange.Text = "Change";
+            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Visible = false;
+
+            // 
             // FormCareLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(241, 359);
+            this.Controls.Add(this.btnChange);
             this.Controls.Add(this.lblInvalid);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblForgot);
@@ -320,5 +333,6 @@
         private System.Windows.Forms.PictureBox pbxCheck2;
         private System.Windows.Forms.PictureBox pbxCheck1;
         private System.Windows.Forms.Label lblInvalid;
+        private System.Windows.Forms.Button btnChange;
     }
 }
