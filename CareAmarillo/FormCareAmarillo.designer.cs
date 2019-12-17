@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formCareAmarillo));
             this.pbxCareAmarillo = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pbxCareText = new System.Windows.Forms.PictureBox();
+            this.pbxSearch = new System.Windows.Forms.PictureBox();
+            this.pbxSearchButton = new System.Windows.Forms.PictureBox();
             this.plRight = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pbxLogin = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCareAmarillo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCareText)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSearchButton)).BeginInit();
             this.plRight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogin)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,113 +50,121 @@
             // 
             this.pbxCareAmarillo.BackColor = System.Drawing.Color.Transparent;
             this.pbxCareAmarillo.Image = ((System.Drawing.Image)(resources.GetObject("pbxCareAmarillo.Image")));
-            this.pbxCareAmarillo.Location = new System.Drawing.Point(159, 0);
+            this.pbxCareAmarillo.Location = new System.Drawing.Point(424, 0);
+            this.pbxCareAmarillo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.pbxCareAmarillo.Name = "pbxCareAmarillo";
-            this.pbxCareAmarillo.Size = new System.Drawing.Size(100, 102);
+            this.pbxCareAmarillo.Size = new System.Drawing.Size(267, 243);
             this.pbxCareAmarillo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxCareAmarillo.TabIndex = 1;
             this.pbxCareAmarillo.TabStop = false;
             // 
-            // pictureBox1
+            // pbxCareText
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(70, 100);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(254, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.pbxCareText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbxCareText.BackColor = System.Drawing.Color.Transparent;
+            this.pbxCareText.Image = ((System.Drawing.Image)(resources.GetObject("pbxCareText.Image")));
+            this.pbxCareText.Location = new System.Drawing.Point(187, 238);
+            this.pbxCareText.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pbxCareText.Name = "pbxCareText";
+            this.pbxCareText.Size = new System.Drawing.Size(677, 119);
+            this.pbxCareText.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxCareText.TabIndex = 2;
+            this.pbxCareText.TabStop = false;
             // 
-            // pictureBox2
+            // pbxSearch
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 147);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(410, 71);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.pbxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbxSearch.BackColor = System.Drawing.Color.Transparent;
+            this.pbxSearch.Image = ((System.Drawing.Image)(resources.GetObject("pbxSearch.Image")));
+            this.pbxSearch.Location = new System.Drawing.Point(0, 351);
+            this.pbxSearch.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pbxSearch.Name = "pbxSearch";
+            this.pbxSearch.Size = new System.Drawing.Size(1093, 169);
+            this.pbxSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxSearch.TabIndex = 3;
+            this.pbxSearch.TabStop = false;
             // 
-            // pictureBox3
+            // pbxSearchButton
             // 
-            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(330, 156);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(58, 54);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
+            this.pbxSearchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbxSearchButton.BackColor = System.Drawing.Color.Transparent;
+            this.pbxSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("pbxSearchButton.Image")));
+            this.pbxSearchButton.Location = new System.Drawing.Point(880, 372);
+            this.pbxSearchButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pbxSearchButton.Name = "pbxSearchButton";
+            this.pbxSearchButton.Size = new System.Drawing.Size(155, 129);
+            this.pbxSearchButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxSearchButton.TabIndex = 4;
+            this.pbxSearchButton.TabStop = false;
             // 
             // plRight
             // 
             this.plRight.BackColor = System.Drawing.Color.Transparent;
             this.plRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.plRight.Controls.Add(this.pictureBox4);
+            this.plRight.Controls.Add(this.pbxLogin);
             this.plRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.plRight.Location = new System.Drawing.Point(503, 0);
-            this.plRight.Margin = new System.Windows.Forms.Padding(1);
+            this.plRight.Location = new System.Drawing.Point(1341, 0);
+            this.plRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.plRight.Name = "plRight";
-            this.plRight.Size = new System.Drawing.Size(75, 354);
+            this.plRight.Size = new System.Drawing.Size(200, 844);
             this.plRight.TabIndex = 5;
             // 
-            // pictureBox4
+            // pbxLogin
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(0, 13);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(1);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(64, 62);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
+            this.pbxLogin.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogin.Image")));
+            this.pbxLogin.Location = new System.Drawing.Point(0, 31);
+            this.pbxLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbxLogin.Name = "pbxLogin";
+            this.pbxLogin.Size = new System.Drawing.Size(171, 148);
+            this.pbxLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxLogin.TabIndex = 0;
+            this.pbxLogin.TabStop = false;
+            this.pbxLogin.Click += new System.EventHandler(this.PbxLogin_Click);
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.tbxSearch);
             this.panel1.Controls.Add(this.pbxCareAmarillo);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(89, 96);
+            this.panel1.Controls.Add(this.pbxSearchButton);
+            this.panel1.Controls.Add(this.pbxSearch);
+            this.panel1.Controls.Add(this.pbxCareText);
+            this.panel1.Location = new System.Drawing.Point(237, 229);
+            this.panel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(410, 218);
+            this.panel1.Size = new System.Drawing.Size(1093, 520);
             this.panel1.TabIndex = 6;
             // 
-            // textBox1
+            // tbxSearch
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBox1.Location = new System.Drawing.Point(23, 160);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(301, 46);
-            this.textBox1.TabIndex = 5;
+            this.tbxSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxSearch.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbxSearch.Location = new System.Drawing.Point(61, 382);
+            this.tbxSearch.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.tbxSearch.Name = "tbxSearch";
+            this.tbxSearch.Size = new System.Drawing.Size(803, 114);
+            this.tbxSearch.TabIndex = 5;
             // 
             // formCareAmarillo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(578, 354);
+            this.ClientSize = new System.Drawing.Size(1541, 844);
             this.Controls.Add(this.plRight);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "formCareAmarillo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CareAmarillo";
             ((System.ComponentModel.ISupportInitialize)(this.pbxCareAmarillo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCareText)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSearchButton)).EndInit();
             this.plRight.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogin)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -165,13 +173,13 @@
 
         #endregion
         private System.Windows.Forms.PictureBox pbxCareAmarillo;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pbxCareText;
+        private System.Windows.Forms.PictureBox pbxSearch;
+        private System.Windows.Forms.PictureBox pbxSearchButton;
         private System.Windows.Forms.Panel plRight;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pbxLogin;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxSearch;
     }
 }
 

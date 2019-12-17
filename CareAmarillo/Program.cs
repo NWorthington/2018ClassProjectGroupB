@@ -20,18 +20,24 @@ namespace CareAmarillo
         [STAThread]
         static void Main()
         {
+
+            //calling methods with string value returned
             //DatabaseProcess.ReadDataBase();
             //DatabaseProcess.ReadHumanServices();
             //DatabaseProcess.ReadEmergencyServices();
             //DatabaseProcess.ReadServicesOffered();
+
+            //calling methods to pass in updated info (ID, count)
             //DatabaseProcess.UpdateBedCount(1, 7);
             //DatabaseProcess.UpdateVolunteers(1, 7);
+
+            //calling method to delete user by (ID)
             //DatabaseProcess.DeleteAUser(3);
 
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormUniSearch());
 
 
             // The methods for SQL interaction.

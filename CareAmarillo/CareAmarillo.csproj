@@ -45,12 +45,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuControl\UserControlAccountsAu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AuControl\UserControlAccountsAu.Designer.cs">
+      <DependentUpon>UserControlAccountsAu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AuControl\UserControlResetPassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AuControl\UserControlResetPassword.Designer.cs">
+      <DependentUpon>UserControlResetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseProcess.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAu.designer.cs">
+      <DependentUpon>FormAu.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCareAmarillo.cs">
       <SubType>Form</SubType>
@@ -64,11 +82,29 @@
     <Compile Include="FormCareLogin.designer.cs">
       <DependentUpon>FormCareLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEs.designer.cs">
+      <DependentUpon>FormEs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHs.designer.cs">
+      <DependentUpon>FormHs.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUniSearch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormUniSearch.designer.cs">
       <DependentUpon>FormUniSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HsControl\UserControlHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HsControl\UserControlHome.Designer.cs">
+      <DependentUpon>UserControlHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Location.cs">
       <SubType>Form</SubType>
@@ -80,8 +116,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider.cs" />
+    <Compile Include="User.cs" />
+    <EmbeddedResource Include="AuControl\UserControlResetPassword.resx">
+      <DependentUpon>UserControlResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAu.resx">
+      <DependentUpon>FormAu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCareAmarillo.resx">
       <DependentUpon>FormCareAmarillo.cs</DependentUpon>
@@ -89,8 +132,17 @@
     <EmbeddedResource Include="FormCareLogin.resx">
       <DependentUpon>FormCareLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEs.resx">
+      <DependentUpon>FormEs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHs.resx">
+      <DependentUpon>FormHs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUniSearch.resx">
       <DependentUpon>FormUniSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HsControl\UserControlHome.resx">
+      <DependentUpon>UserControlHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Location.resx">
       <DependentUpon>Location.cs</DependentUpon>
@@ -116,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EsControl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

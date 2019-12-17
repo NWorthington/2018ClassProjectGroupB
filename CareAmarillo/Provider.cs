@@ -23,7 +23,7 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update EmergencyServicesProvider set EEmail = @Email where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("Email", newEmail));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
@@ -35,13 +35,13 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update HumanServicesProvider set HEmail = @Email where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("Email", newEmail));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
             else
             {
-
+                
             }
         }
 
@@ -55,7 +55,7 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update EmergencyServicesProvider set EPhone = @Phone where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("Phone", newNumber));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
@@ -67,7 +67,7 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update HumanServicesProvider set HPhone = @Phone where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("Phone", newNumber));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
@@ -87,7 +87,7 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update EmergencyServicesProvider set ECity = @City where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("City", newCity));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
@@ -99,7 +99,7 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update HumanServicesProvider set HCity = @City where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("City", newCity));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
@@ -119,7 +119,7 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update EmergencyServicesProvider set EState = @State where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("State", newState));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
@@ -131,7 +131,7 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update HumanServicesProvider set HState = @State where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("State", newState));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
@@ -151,7 +151,7 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update EmergencyServicesProvider set EAddress = @Address where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("Address", newAddress));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
@@ -163,7 +163,7 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update HumanServicesProvider set HAddress = @Address where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("Address", newAddress));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
@@ -183,7 +183,7 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update EmergencyServicesProvider set CompanyName = @CompanyName where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("CompanyName", newCompanyName));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
@@ -195,7 +195,7 @@ namespace CareAmarillo
                 {
                     update.CommandText = "update HumanServicesProvider set CompanyName = @CompanyName where ID = @ID;";
                     update.Parameters.Add(new SqlParameter("CompanyName", newCompanyName));
-                    update.Parameters.Add(new SqlParameter("id", ID));
+                    update.Parameters.Add(new SqlParameter("ID", ID));
                     update.ExecuteNonQuery();
                 }
             }
@@ -213,7 +213,7 @@ namespace CareAmarillo
             {
                 update.CommandText = "update ServicesOffered set  = @Opportunities where ID = @ID;";
                 update.Parameters.Add(new SqlParameter("Opportunities", newVolunteerPositions));
-                update.Parameters.Add(new SqlParameter("id", ID));
+                update.Parameters.Add(new SqlParameter("ID", ID));
                 update.ExecuteNonQuery();
             }
         }
@@ -226,7 +226,7 @@ namespace CareAmarillo
             {
                 update.CommandText = "update ServicesOffered set CriteriaForService = @Criteria where ID = @ID;";
                 update.Parameters.Add(new SqlParameter("Criteria", newRequirements));
-                update.Parameters.Add(new SqlParameter("id", ID));
+                update.Parameters.Add(new SqlParameter("ID", ID));
                 update.ExecuteNonQuery();
             }
         }
@@ -239,7 +239,7 @@ namespace CareAmarillo
             {
                 update.CommandText = "update ServicesOffered set ServiceType = @ServiceType where ID = @ID;";
                 update.Parameters.Add(new SqlParameter("ServiceType", newServiceType));
-                update.Parameters.Add(new SqlParameter("id", ID));
+                update.Parameters.Add(new SqlParameter("ID", ID));
                 update.ExecuteNonQuery();
             }
         }
@@ -252,7 +252,7 @@ namespace CareAmarillo
             {
                 update.CommandText = "update ServicesOffered set Description = @Description where ID = @ID;";
                 update.Parameters.Add(new SqlParameter("Description", newDescription));
-                update.Parameters.Add(new SqlParameter("id", ID));
+                update.Parameters.Add(new SqlParameter("ID", ID));
                 update.ExecuteNonQuery();
             }
         }
