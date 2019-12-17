@@ -15,7 +15,7 @@ using System.Data.SqlClient;
 
 namespace CareAmarillo
 {
-    class LoginWizard
+    public class LoginWizard
     {
         static SqlConnection connection = new SqlConnection();
         /* The NewPass variable will be passed out to the form, which will in turn allow users to input their new password,
