@@ -95,6 +95,7 @@
             this.plRight.Name = "plRight";
             this.plRight.Size = new System.Drawing.Size(248, 148);
             this.plRight.TabIndex = 1;
+            this.plRight.MouseHover += new System.EventHandler(this.PlRight_MouseHover);
             // 
             // lblLogout
             // 
@@ -205,7 +206,6 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "button1";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // plSidebarTop
             // 

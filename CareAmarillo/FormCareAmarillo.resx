@@ -2283,7 +2283,7 @@
         JlwqogAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pbxCareText.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAACDQAAAGKCAYAAAD5DIMfAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IwAALiMBeKU/dgAAtMRJREFUeF7svQm4HVWVvv9PQggzyAEERAYHQFpsbPwhKjhAN9K0qC0OOKA4a5xQ
@@ -3060,7 +3060,7 @@
         AIZU3QgAAAAAAAAAMKTqRgAAAAAAAACA4ax+2/8AHznKPWNF/kkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pbxSearch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAACDQAAAGKCAYAAAD5DIMfAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IwAALiMBeKU/dgAALdFJREFUeF7t3XvQrXdVH3BDQhATS7iMQoGUiwGq0CKWi6BAR0XxQrW146VWmKLY
@@ -3262,7 +3262,7 @@
         QmCC
 </value>
   </data>
-  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pbxSearchButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAADQYAAA0GCAYAAABKj8OPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IwAALiMBeKU/dgAA/7JJREFUeF7s3SGsVNf2B+D/JUEgEIgqDAbRpAmiAoOpQWEqalAYTAUGUdOkpgqF
@@ -5571,7 +5571,7 @@
         AMB/9nnwBXUoKwvCWkFeAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pbxLogin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAADDIAAAvYCAYAAACh/XZoAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IwAALiMBeKU/dgAA/7JJREFUeF7s27uBJmlynWGaABNoAk1YUyBTogkwgSbABJoADwIqNcorkRYscxdb

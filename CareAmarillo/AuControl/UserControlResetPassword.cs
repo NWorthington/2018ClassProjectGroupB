@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CareAmarillo
+namespace CareAmarillo.AuControl
 {
-    public partial class formCareAmarillo : Form
+    public partial class UserControlResetPassword : UserControl
     {
-        public formCareAmarillo()
+        public UserControlResetPassword()
         {
             InitializeComponent();
-        }
-
-        private void PbxLogin_Click(object sender, EventArgs e)
-        {
         }
     }
 }

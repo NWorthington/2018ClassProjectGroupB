@@ -34,9 +34,9 @@ namespace CareAmarillo
             Application.DoEvents();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void PlRight_MouseHover(object sender, EventArgs e)
         {
-            
+            this.lblLogout.ForeColor = Color.DimGray;
         }
     }
 }

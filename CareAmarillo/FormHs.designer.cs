@@ -100,7 +100,6 @@
             // 
             this.lblLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLogout.AutoSize = true;
-            this.lblLogout.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogout.ForeColor = System.Drawing.Color.Gray;
             this.lblLogout.Location = new System.Drawing.Point(40, 48);
@@ -108,6 +107,7 @@
             this.lblLogout.Size = new System.Drawing.Size(161, 46);
             this.lblLogout.TabIndex = 0;
             this.lblLogout.Text = "Log out";
+            this.lblLogout.MouseHover += new System.EventHandler(this.LblLogout_MouseHover);
             // 
             // plSidebar
             // 
@@ -205,7 +205,6 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "button1";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // plSidebarTop
             // 

@@ -108,6 +108,7 @@
             this.lblLogout.Size = new System.Drawing.Size(161, 46);
             this.lblLogout.TabIndex = 0;
             this.lblLogout.Text = "Log out";
+            this.lblLogout.MouseHover += new System.EventHandler(this.LblLogout_MouseHover);
             // 
             // plSidebar
             // 
@@ -205,7 +206,6 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "button1";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // plSidebarTop
             // 
