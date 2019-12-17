@@ -19,6 +19,9 @@ namespace CareAmarillo
 
         private void PbxLogin_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            var form1 = new FormCareLogin();
+            form1.Show();
         }
     }
 }
