@@ -157,7 +157,7 @@ namespace CareAmarillo
             connection.Close();
         }
 
-        public void AdminChangePassword(string ID, string NewPassword)
+        public void AdminChangePassword(int ID, string NewPassword)
         {
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
