@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace CareAmarillo
 {
@@ -42,13 +43,17 @@ namespace CareAmarillo
                 lblPassword.Visible = false;
                 lblNewPassword.Visible = true;
                 lblConPassword.Visible = true;
-                if (tbxUsername.Text != null && tbxPassword.Text != null && tbxUsername.Equals(tbxPassword))
+                //System.Timers.Timer timer = new System.Timers.Timer(5000);
+                while (tbxUsername.Text is null || tbxPassword.Text is null || !tbxUsername.Equals(tbxPassword))
                 {
-                    NewPassword = tbxUsername.Text;
-                    loginWizard.ChangePassword(InputID, NewPassword);
-                    NewPass = false;
-                    MessageBox.Show("NewPass = " + NewPass.ToString(), "NewPassword = " + NewPassword);
+
+                  //  timer.AutoReset = false;
+                    //timer.Start();
                 }
+                NewPassword = tbxUsername.Text;
+                loginWizard.ChangePassword(InputID, NewPassword);
+                NewPass = false;
+                MessageBox.Show("NewPass = " + NewPass.ToString(), "NewPassword = " + NewPassword);
             }
             // The user is now directed to the appropriate form.
             if(Rank.Equals("Admin"))

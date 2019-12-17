@@ -139,6 +139,8 @@ namespace CareAmarillo
         // The ID here needs to be the same as it is in the previous methods, otherwise users can change other people's passwords.
         public void ChangePassword(string ID, string NewPassword)
         {
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.Open();
             using (SqlCommand update = connection.CreateCommand())
             {
                 update.CommandText = "update Users set UPassword = @Password where ID = @ID;";
@@ -152,10 +154,13 @@ namespace CareAmarillo
                 update.Parameters.Add(new SqlParameter("ID", ID));
                 update.ExecuteNonQuery();
             }
+            connection.Close();
         }
 
         public void AdminChangePassword(string ID, string NewPassword)
         {
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.Open();
             using (SqlCommand update = connection.CreateCommand())
             {
                 update.CommandText = "update Users set UPassword = @Password where ID = @ID;";
@@ -169,6 +174,7 @@ namespace CareAmarillo
                 update.Parameters.Add(new SqlParameter("ID", ID));
                 update.ExecuteNonQuery();
             }
+            connection.Close();
         }
 
     }
