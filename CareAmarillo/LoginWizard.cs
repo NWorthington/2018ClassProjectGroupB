@@ -15,7 +15,7 @@ using System.Data.SqlClient;
 
 namespace CareAmarillo
 {
-    class LoginWizard
+    public class LoginWizard
     {
         static SqlConnection connection = new SqlConnection();
         /* The NewPass variable will be passed out to the form, which will in turn allow users to input their new password,
@@ -39,26 +39,17 @@ namespace CareAmarillo
 
 
 
-            /*if (CredentialSearch(ref DBID, ref DBPass, out AuthenticationLevel, out NewPass))
+            if(CredentialSearch(ref DBID, ref DBPass, out AuthenticationLevel, out NewPass))
             {
-                if (HMID == 3 && ESID == 3)
+                if (AuthenticationLevel != null)
                 {
-                    AuthenticationLevel = "Admin";
-                }
-                else if(HMID == 2)
-                {
-                    AuthenticationLevel = "Human Services";
-                }
-                else
-                {
-                    AuthenticationLevel = "Emergency Shelter";
+                    return AuthenticationLevel;
                 }
             }
             else
             {
                 AuthenticationLevel = "Invalid ID or Password";
             }
-            */
             // (NO LONGER NECESSARY)There also isn't a database to pull from so I will use a few files.
             //var IDReader = new StreamReader("C:\\Users\\programmer\\Desktop\\ID.txt");
             //var PassReader = new StreamReader("C:\\Users\\programmer\\Desktop\\Password.txt");
@@ -94,7 +85,7 @@ namespace CareAmarillo
             {
                 // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
                 readAllDatabaseRecords.CommandText =
-                    @"select ID as User_ID, UPassword as Password, UserAccess as AccessLevel, EID as Emergency_Services, NewPass as NPass
+                    @"select ID as User_ID, UPassword as Password, UserAccess, NewPass
                     from Users
                     WHERE ID = @ID AND UPassword = @UPassword";
 
@@ -125,9 +116,9 @@ namespace CareAmarillo
                     {
                         DBID = reader.GetFieldValue<int>(columnNames["User_ID"]).ToString() + "";
                         DBPass = reader.GetFieldValue<string>(columnNames["Password"]) + "";
-                        AuthenticationLevel = reader.GetFieldValue<string>(columnNames["AccessLevel"]);
+                        AuthenticationLevel = reader.GetFieldValue<string>(columnNames["UserAccess"]);
                         //ESID = reader.GetFieldValue<int>(columnNames["Emergency_Services"]);
-                        DBNewPass = reader.GetFieldValue<string>(columnNames["NPass"]);
+                        DBNewPass = reader.GetFieldValue<string>(columnNames["NewPass"]);
                         foundUser = true;
                     }
                     if (DBNewPass.Equals("Yes") || DBNewPass.Equals("yes"))
@@ -138,6 +129,7 @@ namespace CareAmarillo
                     {
                         NewPass = false;
                     }
+                    connection.Close();
                     return foundUser;
                 }
 
@@ -147,6 +139,8 @@ namespace CareAmarillo
         // The ID here needs to be the same as it is in the previous methods, otherwise users can change other people's passwords.
         public void ChangePassword(string ID, string NewPassword)
         {
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.Open();
             using (SqlCommand update = connection.CreateCommand())
             {
                 update.CommandText = "update Users set UPassword = @Password where ID = @ID;";
@@ -160,6 +154,28 @@ namespace CareAmarillo
                 update.Parameters.Add(new SqlParameter("ID", ID));
                 update.ExecuteNonQuery();
             }
+            connection.Close();
         }
+
+        public void AdminChangePassword(int ID, string NewPassword)
+        {
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.Open();
+            using (SqlCommand update = connection.CreateCommand())
+            {
+                update.CommandText = "update Users set UPassword = @Password where ID = @ID;";
+                update.Parameters.Add(new SqlParameter("Password", NewPassword));
+                update.Parameters.Add(new SqlParameter("ID", ID));
+                update.ExecuteNonQuery();
+            }
+            using (SqlCommand update = connection.CreateCommand())
+            {
+                update.CommandText = "update Users set NewPass = 'Yes' where ID = @ID;";
+                update.Parameters.Add(new SqlParameter("ID", ID));
+                update.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
     }
 }

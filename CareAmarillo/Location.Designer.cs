@@ -50,12 +50,11 @@
             // 
             this.lblLocations.AutoSize = true;
             this.lblLocations.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocations.Location = new System.Drawing.Point(429, 246);
-            this.lblLocations.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblLocations.Location = new System.Drawing.Point(161, 103);
+            this.lblLocations.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLocations.Name = "lblLocations";
-            this.lblLocations.Size = new System.Drawing.Size(564, 39);
+            this.lblLocations.Size = new System.Drawing.Size(236, 17);
             this.lblLocations.TabIndex = 1;
-            this.lblLocations.Text = "No information available at this time.";
             // 
             // button1
             // 
