@@ -39,26 +39,17 @@ namespace CareAmarillo
 
 
 
-            /*if (CredentialSearch(ref DBID, ref DBPass, out AuthenticationLevel, out NewPass))
+            if(CredentialSearch(ref DBID, ref DBPass, out AuthenticationLevel, out NewPass))
             {
-                if (HMID == 3 && ESID == 3)
+                if (AuthenticationLevel != null)
                 {
-                    AuthenticationLevel = "Admin";
-                }
-                else if(HMID == 2)
-                {
-                    AuthenticationLevel = "Human Services";
-                }
-                else
-                {
-                    AuthenticationLevel = "Emergency Shelter";
+                    return AuthenticationLevel;
                 }
             }
             else
             {
                 AuthenticationLevel = "Invalid ID or Password";
             }
-            */
             // (NO LONGER NECESSARY)There also isn't a database to pull from so I will use a few files.
             //var IDReader = new StreamReader("C:\\Users\\programmer\\Desktop\\ID.txt");
             //var PassReader = new StreamReader("C:\\Users\\programmer\\Desktop\\Password.txt");
@@ -94,7 +85,7 @@ namespace CareAmarillo
             {
                 // NOTE: @ProfName is just made up: it's a placeholder for the SQL parameter (See the next few lines)
                 readAllDatabaseRecords.CommandText =
-                    @"select ID as User_ID, UPassword as Password, UserAccess as AccessLevel, EID as Emergency_Services, NewPass as NPass
+                    @"select ID as User_ID, UPassword as Password, UserAccess, NewPass
                     from Users
                     WHERE ID = @ID AND UPassword = @UPassword";
 
@@ -125,9 +116,9 @@ namespace CareAmarillo
                     {
                         DBID = reader.GetFieldValue<int>(columnNames["User_ID"]).ToString() + "";
                         DBPass = reader.GetFieldValue<string>(columnNames["Password"]) + "";
-                        AuthenticationLevel = reader.GetFieldValue<string>(columnNames["AccessLevel"]);
+                        AuthenticationLevel = reader.GetFieldValue<string>(columnNames["UserAccess"]);
                         //ESID = reader.GetFieldValue<int>(columnNames["Emergency_Services"]);
-                        DBNewPass = reader.GetFieldValue<string>(columnNames["NPass"]);
+                        DBNewPass = reader.GetFieldValue<string>(columnNames["NewPass"]);
                         foundUser = true;
                     }
                     if (DBNewPass.Equals("Yes") || DBNewPass.Equals("yes"))
@@ -138,6 +129,7 @@ namespace CareAmarillo
                     {
                         NewPass = false;
                     }
+                    connection.Close();
                     return foundUser;
                 }
 
@@ -161,5 +153,23 @@ namespace CareAmarillo
                 update.ExecuteNonQuery();
             }
         }
+
+        public void AdminChangePassword(string ID, string NewPassword)
+        {
+            using (SqlCommand update = connection.CreateCommand())
+            {
+                update.CommandText = "update Users set UPassword = @Password where ID = @ID;";
+                update.Parameters.Add(new SqlParameter("Password", NewPassword));
+                update.Parameters.Add(new SqlParameter("ID", ID));
+                update.ExecuteNonQuery();
+            }
+            using (SqlCommand update = connection.CreateCommand())
+            {
+                update.CommandText = "update Users set NewPass = 'Yes' where ID = @ID;";
+                update.Parameters.Add(new SqlParameter("ID", ID));
+                update.ExecuteNonQuery();
+            }
+        }
+
     }
 }

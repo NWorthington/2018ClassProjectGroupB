@@ -47,6 +47,7 @@ namespace CareAmarillo
                     NewPassword = tbxUsername.Text;
                     loginWizard.ChangePassword(InputID, NewPassword);
                     NewPass = false;
+                    MessageBox.Show("NewPass = " + NewPass.ToString(), "NewPassword = " + NewPassword);
                 }
             }
             // The user is now directed to the appropriate form.
