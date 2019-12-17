@@ -12,8 +12,10 @@ namespace CareAmarillo
     {
         static SqlConnection connection = new SqlConnection();
 
-        public static void SearchDataset( string wordSearched)
+        public static List<string> SearchDataset( string wordSearched)
         {
+            List<string> rowList = new List<string>();
+
             if ( wordSearched != null)
             {
                 //connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
@@ -32,30 +34,30 @@ namespace CareAmarillo
                 var subset1 = testForEmergencyServices.Tables[0].Select("CompanyName >= " + wordSearched + 
                                                                         " or HEmail >= " + wordSearched + 
                                                                         " or HPhone >= " + wordSearched + 
-                                                                        " or HCity" + wordSearched + 
-                                                                        " or HState" + wordSearched +
-                                                                        " or HAddress" + wordSearched);
+                                                                        " or HCity >= " + wordSearched + 
+                                                                        " or HState >= " + wordSearched +
+                                                                        " or HAddress >= " + wordSearched);
                 // Print column 0 of each returned row.
                 for (int i = 0; i < subset1.Length; i++)
                 {
-                    Console.WriteLine(subset1[i]);
+                    rowList.Add(subset1[i].ToString());
                 }
 
                 var testForHumanServices = DatabaseProcess.DataSetHumanServices();
                 var subset2 = testForHumanServices.Tables[0].Select("CompanyName >= " + wordSearched +
                                                                         " or HEmail >= " + wordSearched +
                                                                         " or HPhone >= " + wordSearched +
-                                                                        " or HCity" + wordSearched +
-                                                                        " or HState" + wordSearched +
-                                                                        " or HAddress" + wordSearched);
+                                                                        " or HCity >= " + wordSearched +
+                                                                        " or HState >= " + wordSearched +
+                                                                        " or HAddress >= " + wordSearched);
                 // Print column 0 of each returned row.
                 for (int i = 0; i < subset2.Length; i++)
                 {
-                    Console.WriteLine(subset2[i]);
+                    rowList.Add(subset1[i].ToString());
                 }
 
-
             }
+            return rowList;
         }
     }
 }
