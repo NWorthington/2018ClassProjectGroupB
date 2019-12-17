@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace CareAmarillo.AuControl
 {
-    public partial class UserControlAccountsAu : UserControl
+    public partial class UserControlAccounts : UserControl
     {
-        public UserControlAccountsAu()
+        public UserControlAccounts()
         {
             InitializeComponent();
         }
-
     }
 }

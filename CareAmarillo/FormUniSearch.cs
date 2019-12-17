@@ -24,6 +24,16 @@ namespace CareAmarillo
             userSearch.SearchDataset(wordSearched);
         }
 
-        
+        public void PopulateSearch()
+        {
+            string wordSearched = textBox1.Text;
+            var userSearch = new User();
+            List<string> list = new List<string>();
+            foreach (string row in userSearch.SearchDataset(wordSearched))
+            {
+                list.Add(row);
+            }
+            listBox1.DataSource = list;
+        }
     }
 }

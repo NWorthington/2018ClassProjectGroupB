@@ -8,7 +8,7 @@ using System.Data;
 
 namespace CareAmarillo
 {
-    class User
+    public class User
     {
         static SqlConnection connection = new SqlConnection();
 
@@ -58,6 +58,7 @@ namespace CareAmarillo
 
             }
             return rowList;
+
         }
     }
 }
