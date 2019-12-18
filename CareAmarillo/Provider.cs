@@ -8,12 +8,12 @@ using System.Data.Sql;
 
 namespace CareAmarillo
 {
-    class Provider
+    public class Provider
     {
         static SqlConnection connection = new SqlConnection();
         
 
-        static public void UpdateEmail(Char serviceType, int ID, string newEmail)
+        public void UpdateEmail(Char serviceType, int ID, string newEmail)
         {
             if (serviceType == 'E')
             {

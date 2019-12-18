@@ -12,9 +12,13 @@ namespace CareAmarillo
 {
     public partial class FormHS : Form
     {
+       
+        char serviceType = 'H';
         public FormHS()
         {
             InitializeComponent();
+            var provider = new Provider();
+            provider.UpdateEmail(serviceType, 3, "");
         }
 
         bool show1;

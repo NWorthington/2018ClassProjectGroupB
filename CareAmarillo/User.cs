@@ -30,13 +30,14 @@ namespace CareAmarillo
 
                 //    connection.Close();
                 //}
-                var testForEmergencyServices = DatabaseProcess.DataSetHumanServices();
-                var subset1 = testForEmergencyServices.Tables[0].Select("CompanyName >= " + wordSearched + 
-                                                                        " or HEmail >= " + wordSearched + 
-                                                                        " or HPhone >= " + wordSearched + 
-                                                                        " or HCity >= " + wordSearched + 
-                                                                        " or HState >= " + wordSearched +
-                                                                        " or HAddress >= " + wordSearched);
+                var testForEmergencyServices = DatabaseProcess.DataSetEmergencyServices();
+                var subset1 = testForEmergencyServices.Tables[0].Select("Company >= '" + wordSearched +
+                                                                        "' or Email >= '" + wordSearched +
+                                                                        "' or Phone >= '" + wordSearched +
+                                                                        "' or City >= '" + wordSearched +
+                                                                        "' or State >= '" + wordSearched +
+                                                                        "' or Address >= '" + wordSearched + "'");
+
                 // Print column 0 of each returned row.
                 for (int i = 0; i < subset1.Length; i++)
                 {
@@ -44,16 +45,16 @@ namespace CareAmarillo
                 }
 
                 var testForHumanServices = DatabaseProcess.DataSetHumanServices();
-                var subset2 = testForHumanServices.Tables[0].Select("CompanyName >= " + wordSearched +
-                                                                        " or HEmail >= " + wordSearched +
-                                                                        " or HPhone >= " + wordSearched +
-                                                                        " or HCity >= " + wordSearched +
-                                                                        " or HState >= " + wordSearched +
-                                                                        " or HAddress >= " + wordSearched);
+                var subset2 = testForHumanServices.Tables[0].Select("Company >= '" + wordSearched +
+                                                                        "' or Email >= '" + wordSearched +
+                                                                        "' or Phone >= '" + wordSearched +
+                                                                        "' or City >= '" + wordSearched +
+                                                                        "' or State >= '" + wordSearched +
+                                                                        "' or Address >= '" + wordSearched + "'");
                 // Print column 0 of each returned row.
                 for (int i = 0; i < subset2.Length; i++)
                 {
-                    rowList.Add(subset1[i].ToString());
+                    rowList.Add(subset2[i].ToString());
                 }
 
             }
