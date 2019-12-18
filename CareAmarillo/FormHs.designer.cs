@@ -35,18 +35,18 @@
             this.plRight = new System.Windows.Forms.Panel();
             this.lblLogout = new System.Windows.Forms.Label();
             this.plSidebar = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.plSidebarTop = new System.Windows.Forms.Panel();
             this.plMiddle = new System.Windows.Forms.Panel();
+            this.userControlHomePage1 = new CareAmarillo.HsControl.UserControlHomePage();
+            this.userControlHome1 = new CareAmarillo.HsControl.UserControlHome();
             this.plTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCareAmarillo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMenuBar)).BeginInit();
             this.plRight.SuspendLayout();
             this.plSidebar.SuspendLayout();
+            this.plMiddle.SuspendLayout();
             this.SuspendLayout();
             // 
             // plTop
@@ -107,14 +107,12 @@
             this.lblLogout.Size = new System.Drawing.Size(161, 46);
             this.lblLogout.TabIndex = 0;
             this.lblLogout.Text = "Log out";
+            this.lblLogout.Click += new System.EventHandler(this.LblLogout_Click);
             this.lblLogout.MouseHover += new System.EventHandler(this.LblLogout_MouseHover);
             // 
             // plSidebar
             // 
             this.plSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.plSidebar.Controls.Add(this.button5);
-            this.plSidebar.Controls.Add(this.button4);
-            this.plSidebar.Controls.Add(this.button3);
             this.plSidebar.Controls.Add(this.button1);
             this.plSidebar.Controls.Add(this.button2);
             this.plSidebar.Controls.Add(this.plSidebarTop);
@@ -124,54 +122,6 @@
             this.plSidebar.Name = "plSidebar";
             this.plSidebar.Size = new System.Drawing.Size(464, 846);
             this.plSidebar.TabIndex = 2;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.LightGray;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(0, 644);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(464, 141);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.LightGray;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(0, 503);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(464, 141);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.LightGray;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(0, 362);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(464, 141);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -186,8 +136,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(464, 141);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button2";
+            this.button1.Text = "Update";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
@@ -203,8 +154,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(464, 145);
             this.button2.TabIndex = 1;
-            this.button2.Text = "button1";
+            this.button2.Text = "Home";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // plSidebarTop
             // 
@@ -217,12 +169,30 @@
             // 
             // plMiddle
             // 
+            this.plMiddle.Controls.Add(this.userControlHomePage1);
+            this.plMiddle.Controls.Add(this.userControlHome1);
             this.plMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plMiddle.Location = new System.Drawing.Point(464, 148);
             this.plMiddle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.plMiddle.Name = "plMiddle";
             this.plMiddle.Size = new System.Drawing.Size(1077, 846);
             this.plMiddle.TabIndex = 3;
+            // 
+            // userControlHomePage1
+            // 
+            this.userControlHomePage1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlHomePage1.Location = new System.Drawing.Point(0, 0);
+            this.userControlHomePage1.Name = "userControlHomePage1";
+            this.userControlHomePage1.Size = new System.Drawing.Size(1077, 846);
+            this.userControlHomePage1.TabIndex = 1;
+            // 
+            // userControlHome1
+            // 
+            this.userControlHome1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlHome1.Location = new System.Drawing.Point(0, 0);
+            this.userControlHome1.Name = "userControlHome1";
+            this.userControlHome1.Size = new System.Drawing.Size(1077, 846);
+            this.userControlHome1.TabIndex = 0;
             // 
             // FormHS
             // 
@@ -241,6 +211,7 @@
             this.plRight.ResumeLayout(false);
             this.plRight.PerformLayout();
             this.plSidebar.ResumeLayout(false);
+            this.plMiddle.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -254,11 +225,10 @@
         private System.Windows.Forms.Label lblLogout;
         private System.Windows.Forms.PictureBox pbxMenuBar;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel plSidebarTop;
         private System.Windows.Forms.PictureBox pbxCareAmarillo;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private HsControl.UserControlHomePage userControlHomePage1;
+        private HsControl.UserControlHome userControlHome1;
     }
 }

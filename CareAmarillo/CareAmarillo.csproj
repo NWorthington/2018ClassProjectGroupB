@@ -51,13 +51,37 @@
     <Compile Include="AuControl\UserControlAccountsAu.Designer.cs">
       <DependentUpon>UserControlAccountsAu.cs</DependentUpon>
     </Compile>
+    <Compile Include="AuControl\UserControlHomePageAu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AuControl\UserControlHomePageAu.designer.cs">
+      <DependentUpon>UserControlHomePageAu.cs</DependentUpon>
+    </Compile>
     <Compile Include="AuControl\UserControlResetPassword.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AuControl\UserControlResetPassword.Designer.cs">
       <DependentUpon>UserControlResetPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="AuControl\UserControlUpdateInfoAu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AuControl\UserControlUpdateInfoAu.designer.cs">
+      <DependentUpon>UserControlUpdateInfoAu.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseProcess.cs" />
+    <Compile Include="EsControl\UserControlHomePageES.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EsControl\UserControlHomePageES.Designer.cs">
+      <DependentUpon>UserControlHomePageES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EsControl\UserControlUpdateInfoES.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EsControl\UserControlUpdateInfoES.Designer.cs">
+      <DependentUpon>UserControlUpdateInfoES.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,11 +124,17 @@
     <Compile Include="FormUniSearch.designer.cs">
       <DependentUpon>FormUniSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="HsControl\UserControlHome.cs">
+    <Compile Include="HsControl\UserControlHomePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="HsControl\UserControlHome.Designer.cs">
-      <DependentUpon>UserControlHome.cs</DependentUpon>
+    <Compile Include="HsControl\UserControlHomePage.Designer.cs">
+      <DependentUpon>UserControlHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HsControl\UserControlUpdateInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HsControl\UserControlUpdateInfo.Designer.cs">
+      <DependentUpon>UserControlUpdateInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Location.cs">
       <SubType>Form</SubType>
@@ -122,6 +152,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AuControl\UserControlResetPassword.resx">
       <DependentUpon>UserControlResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuControl\UserControlUpdateInfoAu.resx">
+      <DependentUpon>UserControlUpdateInfoAu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EsControl\UserControlHomePageES.resx">
+      <DependentUpon>UserControlHomePageES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EsControl\UserControlUpdateInfoES.resx">
+      <DependentUpon>UserControlUpdateInfoES.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -144,8 +183,11 @@
     <EmbeddedResource Include="FormUniSearch.resx">
       <DependentUpon>FormUniSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HsControl\UserControlHome.resx">
-      <DependentUpon>UserControlHome.cs</DependentUpon>
+    <EmbeddedResource Include="HsControl\UserControlHomePage.resx">
+      <DependentUpon>UserControlHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HsControl\UserControlUpdateInfo.resx">
+      <DependentUpon>UserControlUpdateInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Location.resx">
       <DependentUpon>Location.cs</DependentUpon>
@@ -172,8 +214,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EsControl\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

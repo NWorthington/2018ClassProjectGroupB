@@ -39,13 +39,9 @@ namespace CareAmarillo
                     update.ExecuteNonQuery();
                 }
             }
-            else
-            {
-                
-            }
         }
 
-        static public void UpdatePhone(Char serviceType, int ID, String newNumber)
+         public void UpdatePhone(Char serviceType, int ID, String newNumber)
         {
             if (serviceType == 'E')
             {
@@ -77,7 +73,7 @@ namespace CareAmarillo
             }
         }
 
-        static public void UpdateCity(Char serviceType, String newCity, int ID)
+        public void UpdateCity(Char serviceType, String newCity, int ID)
         {
             if (serviceType == 'E')
             {
@@ -109,7 +105,7 @@ namespace CareAmarillo
             }
         }
 
-        static public void UpdateState(Char serviceType, String newState, int ID)
+        public void UpdateState(Char serviceType, String newState, int ID)
         {
             if (serviceType == 'E')
             {
@@ -141,7 +137,7 @@ namespace CareAmarillo
             }
         }
 
-        static public void UpdateAddress(Char serviceType, String newAddress, int ID)
+        public void UpdateAddress(Char serviceType, String newAddress, int ID)
         {
             if (serviceType == 'E')
             {
@@ -173,7 +169,7 @@ namespace CareAmarillo
             }
         }
 
-        static public void UpdateCompanyName(Char serviceType,  String newCompanyName, int ID)
+        public void UpdateCompanyName(Char serviceType,  String newCompanyName, int ID)
         {
             if (serviceType == 'E')
             {
@@ -205,7 +201,7 @@ namespace CareAmarillo
             }
         }
 
-        static public void UpdateVolunteerPositions(String newVolunteerPositions, int ID)
+        public void UpdateVolunteerPositions(String newVolunteerPositions, int ID)
         {
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
@@ -218,7 +214,7 @@ namespace CareAmarillo
             }
         }
 
-        static public void UpdateRequirements(String newRequirements, int ID)
+        public void UpdateRequirements(String newRequirements, int ID)
         {
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
@@ -231,7 +227,7 @@ namespace CareAmarillo
             }
         }
 
-        static public void UpdateServiceType(String newServiceType, int ID)
+        public void UpdateServiceType(String newServiceType, int ID)
         {
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
@@ -244,7 +240,7 @@ namespace CareAmarillo
             }
         }
 
-        static public void UpdateDescription(String newDescription, int ID)
+        public void UpdateDescription(String newDescription, int ID)
         {
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
             connection.Open();
@@ -252,6 +248,19 @@ namespace CareAmarillo
             {
                 update.CommandText = "update ServicesOffered set Description = @Description where ID = @ID;";
                 update.Parameters.Add(new SqlParameter("Description", newDescription));
+                update.Parameters.Add(new SqlParameter("ID", ID));
+                update.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateBedCount(String BedCount, int ID)
+        {
+            connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";
+            connection.Open();
+            using (SqlCommand update = connection.CreateCommand())
+            {
+                update.CommandText = "update ServicesOffered set  = @BedCount where ID = @ID;";
+                update.Parameters.Add(new SqlParameter("BedCount", BedCount));
                 update.Parameters.Add(new SqlParameter("ID", ID));
                 update.ExecuteNonQuery();
             }

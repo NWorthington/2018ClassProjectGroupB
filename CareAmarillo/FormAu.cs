@@ -18,7 +18,6 @@ namespace CareAmarillo
         }
 
         bool show1;
-        bool show2;
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {

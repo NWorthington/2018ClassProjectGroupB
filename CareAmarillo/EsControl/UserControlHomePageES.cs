@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace CareAmarillo.HsControl
 {
-    public partial class UserControlHome : UserControl
+    public partial class UserControlHomePageES : UserControl
     {
-        public UserControlHome()
+        public int ID = 0;
+        public UserControlHomePageES()
         {
             InitializeComponent();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(textBox1.Text);
+            ID = id;
         }
     }
 }

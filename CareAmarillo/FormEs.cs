@@ -15,6 +15,7 @@ namespace CareAmarillo
         public FormES()
         {
             InitializeComponent();
+            var provider = new Provider();
         }
 
         bool show1;
@@ -37,6 +38,22 @@ namespace CareAmarillo
         private void LblLogout_MouseHover(object sender, EventArgs e)
         {
             this.lblLogout.ForeColor = Color.DimGray;
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            
+            userControlHomePageES1.BringToFront();
+        }
+
+        private void LblLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            userControlHomeES1.BringToFront();
         }
     }
 }

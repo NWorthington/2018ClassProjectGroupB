@@ -12,13 +12,10 @@ namespace CareAmarillo
 {
     public partial class FormHS : Form
     {
-       
-        char serviceType = 'H';
         public FormHS()
         {
             InitializeComponent();
             var provider = new Provider();
-            provider.UpdateEmail(serviceType, 3, "");
         }
 
         bool show1;
@@ -41,6 +38,21 @@ namespace CareAmarillo
         private void LblLogout_MouseHover(object sender, EventArgs e)
         {
             this.lblLogout.ForeColor = Color.DimGray;
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            userControlHomePage1.BringToFront();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            userControlHome1.BringToFront();
+        }
+
+        private void LblLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

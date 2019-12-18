@@ -409,7 +409,7 @@ namespace CareAmarillo
             }
         }
 
-        static public void UpdateBedCount(int id, int count)
+        public void UpdateBedCount(int id, int count)
         {
             //setting up connection string to server
             connection.ConnectionString = "Server=cis1.actx.edu;Database=project2;User Id=db2;Password=db20;";

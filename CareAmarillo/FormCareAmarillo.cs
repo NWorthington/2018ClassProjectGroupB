@@ -12,6 +12,8 @@ namespace CareAmarillo
 {
     public partial class formCareAmarillo : Form
     {
+        public string textBox = "";
+
         public formCareAmarillo()
         {
             InitializeComponent();
@@ -24,5 +26,12 @@ namespace CareAmarillo
             form1.Show();
         }
 
+        private void PbxSearchButton_Click(object sender, EventArgs e)
+        {
+            textBox = tbxSearch.Text;
+            this.Hide();
+            var form1 = new FormUniSearch();
+            form1.Show();
+        }
     }
 }

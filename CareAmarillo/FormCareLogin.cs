@@ -21,7 +21,7 @@ namespace CareAmarillo
             
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        public void btnLogin_Click(object sender, EventArgs e)
         {
             LoginWizard loginWizard = new LoginWizard();
             string InputID = "";
@@ -70,7 +70,6 @@ namespace CareAmarillo
             {
                 lblInvalid.Visible = true;
             }
-
         }
 
         /*private void btnChange_Click(object sender, EventArgs e, string NewPassword, bool NewPass, string InputID)
